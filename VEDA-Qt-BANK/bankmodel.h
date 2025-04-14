@@ -6,6 +6,7 @@
 #include <QList>
 #include <QVariant>
 #include <QMap>
+#include <QSqlDatabase>
 
 class Account {
 public:
@@ -34,6 +35,7 @@ class BankModel : public QObject
     
 public:
     explicit BankModel(QObject *parent = nullptr);
+    ~BankModel();
     
     QString userName() const { return m_userName; }
     void setUserName(const QString &name);
@@ -64,6 +66,9 @@ private:
     QString m_currentAccountNumber;
     QList<Account> m_accounts;
     QMap<QString, QList<Transaction>> m_transactions;
+    QSqlDatabase db;
+
+    void initializeDatabase();
     
     bool isLoggedIn;
     const double MAX_AMOUNT = 4200000000.0; // 42억

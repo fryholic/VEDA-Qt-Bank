@@ -10,6 +10,7 @@ QLabel {
     background-color: transparent;  /* 배경을 투명하게 설정 */
 }
 
+
 /* 타이틀 스타일 */
 #titleLabel {
     font-size: 24px;

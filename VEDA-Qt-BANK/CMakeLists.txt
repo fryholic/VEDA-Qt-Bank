@@ -8,7 +8,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt6 6.8 REQUIRED COMPONENTS Core Gui Widgets)
+find_package(Qt6 6.8 REQUIRED COMPONENTS Core Gui Widgets Sql)
 
 set(PROJECT_SOURCES
     main.cpp
@@ -33,12 +33,14 @@ set(PROJECT_SOURCES
 
 qt_add_executable(HanwhaBankApp
     ${PROJECT_SOURCES}
+
 )
 
 target_link_libraries(HanwhaBankApp PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets
+    Qt6::Sql
 )
 
 # 리소스 파일 복사

@@ -1,29 +1,24 @@
 #include "bankmodel.h"
 #include <QDateTime>
+#include <QSqlQuery>
+#include <QSqlError>
 
 BankModel::BankModel(QObject *parent) : QObject(parent), isLoggedIn(false)
 {
-    // 테스트 데이터 초기화
-    m_accounts.append(Account("1234-5678-9012", "일반 계좌", 1000000));
-    m_accounts.append(Account("9876-5432-1098", "저축 계좌", 5000000));
-    m_accounts.append(Account("5555-6666-7777", "투자 계좌", 10000000));
-    
-    QList<Transaction> transactions1;
-    transactions1.append(Transaction("2023-04-01", "입금", 500000, "급여"));
-    transactions1.append(Transaction("2023-04-05", "출금", 100000, "생활비"));
-    transactions1.append(Transaction("2023-04-10", "송금", 50000, "친구에게 송금"));
-    m_transactions["1234-5678-9012"] = transactions1;
-    
-    QList<Transaction> transactions2;
-    transactions2.append(Transaction("2023-03-15", "입금", 1000000, "보너스"));
-    transactions2.append(Transaction("2023-03-20", "출금", 200000, "가전제품 구매"));
-    transactions2.append(Transaction("2023-03-25", "입금", 300000, "환불"));
-    m_transactions["9876-5432-1098"] = transactions2;
-    
-    QList<Transaction> transactions3;
-    transactions3.append(Transaction("2023-02-10", "입금", 5000000, "투자금"));
-    transactions3.append(Transaction("2023-02-15", "입금", 5000000, "투자금"));
-    m_transactions["5555-6666-7777"] = transactions3;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("bank.db"); // 데이터베이스 파일 이름
+    if (!db.open()) {
+        qDebug() << "Error: Unable to open database:" << db.lastError().text();
+    } else {
+        initializeDatabase(); // 테이블 생성
+    }
+}
+
+BankModel::~BankModel()
+{
+    if (db.isOpen()) {
+        db.close();
+    }
 }
 
 void BankModel::setUserName(const QString &name)
@@ -36,11 +31,11 @@ void BankModel::setUserName(const QString &name)
 
 double BankModel::totalBalance() const
 {
-    double total = 0.0;
-    for (const Account &account : m_accounts) {
-        total += account.balance;
+    QSqlQuery query("SELECT SUM(balance) as total FROM accounts");
+    if (query.next()) {
+        return query.value("total").toDouble();
     }
-    return total;
+    return 0.0;
 }
 
 void BankModel::setCurrentAccountNumber(const QString &accountNumber)
@@ -71,12 +66,23 @@ void BankModel::logout()
 
 QVariantList BankModel::getAccounts() const
 {
+    // QVariantList result;
+    // for (const Account &account : m_accounts) {
+    //     QVariantMap accountMap;
+    //     accountMap["accountNumber"] = account.accountNumber;
+    //     accountMap["accountName"] = account.accountName;
+    //     accountMap["balance"] = account.balance;
+    //     result.append(accountMap);
+    // }
+    // return result;
+
     QVariantList result;
-    for (const Account &account : m_accounts) {
+    QSqlQuery query("SELECT * FROM accounts");
+    while (query.next()) {
         QVariantMap accountMap;
-        accountMap["accountNumber"] = account.accountNumber;
-        accountMap["accountName"] = account.accountName;
-        accountMap["balance"] = account.balance;
+        accountMap["accountNumber"] = query.value("accountNumber").toString();
+        accountMap["accountName"] = query.value("accountName").toString();
+        accountMap["balance"] = query.value("balance").toDouble();
         result.append(accountMap);
     }
     return result;
@@ -85,13 +91,13 @@ QVariantList BankModel::getAccounts() const
 QVariantMap BankModel::getAccountDetails(const QString &accountNumber) const
 {
     QVariantMap result;
-    for (const Account &account : m_accounts) {
-        if (account.accountNumber == accountNumber) {
-            result["accountNumber"] = account.accountNumber;
-            result["accountName"] = account.accountName;
-            result["balance"] = account.balance;
-            break;
-        }
+    QSqlQuery query;
+    query.prepare("SELECT * FROM accounts WHERE accountNumber = :accountNumber");
+    query.bindValue(":accountNumber", accountNumber);
+    if (query.exec() && query.next()) {
+        result["accountNumber"] = query.value("accountNumber").toString();
+        result["accountName"] = query.value("accountName").toString();
+        result["balance"] = query.value("balance").toDouble();
     }
     return result;
 }
@@ -99,13 +105,16 @@ QVariantMap BankModel::getAccountDetails(const QString &accountNumber) const
 QVariantList BankModel::getTransactions(const QString &accountNumber) const
 {
     QVariantList result;
-    if (m_transactions.contains(accountNumber)) {
-        for (const Transaction &transaction : m_transactions[accountNumber]) {
+    QSqlQuery query;
+    query.prepare("SELECT * FROM transactions WHERE accountNumber = :accountNumber");
+    query.bindValue(":accountNumber", accountNumber);
+    if (query.exec()) {
+        while (query.next()) {
             QVariantMap transactionMap;
-            transactionMap["date"] = transaction.date;
-            transactionMap["type"] = transaction.type;
-            transactionMap["amount"] = transaction.amount;
-            transactionMap["description"] = transaction.description;
+            transactionMap["date"] = query.value("date").toString();
+            transactionMap["type"] = query.value("type").toString();
+            transactionMap["amount"] = query.value("amount").toDouble();
+            transactionMap["description"] = query.value("description").toString();
             result.append(transactionMap);
         }
     }
@@ -114,108 +123,160 @@ QVariantList BankModel::getTransactions(const QString &accountNumber) const
 
 bool BankModel::deposit(const QString &accountNumber, double amount, const QString &verificationCode)
 {
-    // 검증 코드는 5자리 숫자여야 함
+    // // 검증 코드는 5자리 숫자여야 함
+    // if (verificationCode.length() != 5 || !verificationCode.toInt()) {
+    //     return false;
+    // }
+    
+    // if (!verifyAmount(amount, "deposit")) {
+    //     return false;
+    // }
+    
+    // for (int i = 0; i < m_accounts.size(); ++i) {
+    //     if (m_accounts[i].accountNumber == accountNumber) {
+    //         m_accounts[i].balance += amount;
+            
+    //         // 거래 내역 추가
+    //         QDateTime now = QDateTime::currentDateTime();
+    //         Transaction transaction(now.toString("yyyy-MM-dd"), "입금", amount, "입금");
+    //         m_transactions[accountNumber].append(transaction);
+            
+    //         emit totalBalanceChanged();
+    //         emit transactionCompleted("deposit", amount);
+    //         return true;
+    //     }
+    // }
+    
+    // return false;
+
     if (verificationCode.length() != 5 || !verificationCode.toInt()) {
         return false;
     }
-    
+
     if (!verifyAmount(amount, "deposit")) {
         return false;
     }
-    
-    for (int i = 0; i < m_accounts.size(); ++i) {
-        if (m_accounts[i].accountNumber == accountNumber) {
-            m_accounts[i].balance += amount;
-            
-            // 거래 내역 추가
-            QDateTime now = QDateTime::currentDateTime();
-            Transaction transaction(now.toString("yyyy-MM-dd"), "입금", amount, "입금");
-            m_transactions[accountNumber].append(transaction);
-            
-            emit totalBalanceChanged();
-            emit transactionCompleted("deposit", amount);
-            return true;
-        }
+
+    QSqlQuery query;
+    query.prepare("UPDATE accounts SET balance = balance + :amount WHERE accountNumber = :accountNumber");
+    query.bindValue(":amount", amount);
+    query.bindValue(":accountNumber", accountNumber);
+    if (!query.exec()) {
+        qDebug() << "Deposit error:" << query.lastError().text();
+        return false;
     }
-    
-    return false;
+
+    QDateTime now = QDateTime::currentDateTime();
+    query.prepare("INSERT INTO transactions (accountNumber, date, type, amount, description) "
+                  "VALUES (:accountNumber, :date, :type, :amount, :description)");
+    query.bindValue(":accountNumber", accountNumber);
+    query.bindValue(":date", now.toString("yyyy-MM-dd"));
+    query.bindValue(":type", "입금");
+    query.bindValue(":amount", amount);
+    query.bindValue(":description", "입금");
+    if (!query.exec()) {
+        qDebug() << "Transaction insert error:" << query.lastError().text();
+        return false;
+    }
+
+    emit totalBalanceChanged();
+    emit transactionCompleted("deposit", amount);
+    return true;
 }
 
 bool BankModel::withdraw(const QString &accountNumber, double amount, const QString &verificationCode)
 {
-    // 검증 코드는 5자리 숫자여야 함
     if (verificationCode.length() != 5 || !verificationCode.toInt()) {
         return false;
     }
-    
+
     if (!verifyAmount(amount, "withdraw", accountNumber)) {
         return false;
     }
-    
-    for (int i = 0; i < m_accounts.size(); ++i) {
-        if (m_accounts[i].accountNumber == accountNumber) {
-            if (m_accounts[i].balance < amount) {
-                return false; // 잔액 부족
-            }
-            
-            m_accounts[i].balance -= amount;
-            
-            // 거래 내역 추가
-            QDateTime now = QDateTime::currentDateTime();
-            Transaction transaction(now.toString("yyyy-MM-dd"), "출금", amount, "출금");
-            m_transactions[accountNumber].append(transaction);
-            
-            emit totalBalanceChanged();
-            emit transactionCompleted("withdraw", amount);
-            return true;
-        }
+
+    QSqlQuery query;
+    query.prepare("UPDATE accounts SET balance = balance - :amount WHERE accountNumber = :accountNumber");
+    query.bindValue(":amount", amount);
+    query.bindValue(":accountNumber", accountNumber);
+    if (!query.exec()) {
+        qDebug() << "Withdraw error:" << query.lastError().text();
+        return false;
     }
-    
-    return false;
+
+    QDateTime now = QDateTime::currentDateTime();
+    query.prepare("INSERT INTO transactions (accountNumber, date, type, amount, description) "
+                  "VALUES (:accountNumber, :date, :type, :amount, :description)");
+    query.bindValue(":accountNumber", accountNumber);
+    query.bindValue(":date", now.toString("yyyy-MM-dd"));
+    query.bindValue(":type", "출금");
+    query.bindValue(":amount", amount);
+    query.bindValue(":description", "출금");
+    if (!query.exec()) {
+        qDebug() << "Transaction insert error:" << query.lastError().text();
+        return false;
+    }
+
+    emit totalBalanceChanged();
+    emit transactionCompleted("withdraw", amount);
+    return true;
 }
 
 bool BankModel::transfer(const QString &fromAccount, const QString &toAccount, double amount, const QString &verificationCode)
 {
-    // 검증 코드는 5자리 숫자여야 함
     if (verificationCode.length() != 5 || !verificationCode.toInt()) {
         return false;
     }
-    
+
     if (!verifyAmount(amount, "transfer", fromAccount)) {
         return false;
     }
-    
-    int fromIndex = -1;
-    int toIndex = -1;
-    
-    for (int i = 0; i < m_accounts.size(); ++i) {
-        if (m_accounts[i].accountNumber == fromAccount) {
-            fromIndex = i;
-        }
-        if (m_accounts[i].accountNumber == toAccount) {
-            toIndex = i;
-        }
+
+    QSqlQuery query;
+    // 출금
+    query.prepare("UPDATE accounts SET balance = balance - :amount WHERE accountNumber = :accountNumber");
+    query.bindValue(":amount", amount);
+    query.bindValue(":accountNumber", fromAccount);
+    if (!query.exec()) {
+        qDebug() << "Transfer (withdraw) error:" << query.lastError().text();
+        return false;
     }
-    
-    if (fromIndex == -1 || toIndex == -1) {
-        return false; // 계좌 없음
+
+    // 입금
+    query.prepare("UPDATE accounts SET balance = balance + :amount WHERE accountNumber = :accountNumber");
+    query.bindValue(":amount", amount);
+    query.bindValue(":accountNumber", toAccount);
+    if (!query.exec()) {
+        qDebug() << "Transfer (deposit) error:" << query.lastError().text();
+        return false;
     }
-    
-    if (m_accounts[fromIndex].balance < amount) {
-        return false; // 잔액 부족
-    }
-    
-    m_accounts[fromIndex].balance -= amount;
-    m_accounts[toIndex].balance += amount;
-    
-    // 거래 내역 추가
+
     QDateTime now = QDateTime::currentDateTime();
-    Transaction transactionFrom(now.toString("yyyy-MM-dd"), "송금", amount, "송금: " + toAccount);
-    m_transactions[fromAccount].append(transactionFrom);
-    
-    Transaction transactionTo(now.toString("yyyy-MM-dd"), "입금", amount, "송금: " + fromAccount);
-    m_transactions[toAccount].append(transactionTo);
-    
+    // 출금 거래 내역
+    query.prepare("INSERT INTO transactions (accountNumber, date, type, amount, description) "
+                  "VALUES (:accountNumber, :date, :type, :amount, :description)");
+    query.bindValue(":accountNumber", fromAccount);
+    query.bindValue(":date", now.toString("yyyy-MM-dd"));
+    query.bindValue(":type", "송금");
+    query.bindValue(":amount", amount);
+    query.bindValue(":description", "송금: " + toAccount);
+    if (!query.exec()) {
+        qDebug() << "Transfer (from) transaction error:" << query.lastError().text();
+        return false;
+    }
+
+    // 입금 거래 내역
+    query.prepare("INSERT INTO transactions (accountNumber, date, type, amount, description) "
+                  "VALUES (:accountNumber, :date, :type, :amount, :description)");
+    query.bindValue(":accountNumber", toAccount);
+    query.bindValue(":date", now.toString("yyyy-MM-dd"));
+    query.bindValue(":type", "입금");
+    query.bindValue(":amount", amount);
+    query.bindValue(":description", "송금: " + fromAccount);
+    if (!query.exec()) {
+        qDebug() << "Transfer (to) transaction error:" << query.lastError().text();
+        return false;
+    }
+
     emit totalBalanceChanged();
     emit transactionCompleted("transfer", amount);
     return true;
@@ -223,25 +284,54 @@ bool BankModel::transfer(const QString &fromAccount, const QString &toAccount, d
 
 bool BankModel::verifyAmount(double amount, const QString &type, const QString &accountNumber)
 {
-    if (amount <= 0) {
-        return false; // 0원 이하 금액 불가
+    if (amount <= 0 || amount > MAX_AMOUNT) {
+        return false;
     }
-    
-    if (amount > MAX_AMOUNT) {
-        return false; // 42억 초과 금액 불가
-    }
-    
+
     if (type == "withdraw" || type == "transfer") {
-        // 출금이나 송금의 경우 계좌 잔액 확인
-        for (const Account &account : m_accounts) {
-            if (account.accountNumber == accountNumber) {
-                if (account.balance < amount) {
-                    return false; // 잔액 부족
-                }
-                break;
+        QSqlQuery query;
+        query.prepare("SELECT balance FROM accounts WHERE accountNumber = :accountNumber");
+        query.bindValue(":accountNumber", accountNumber);
+        if (query.exec() && query.next()) {
+            double balance = query.value("balance").toDouble();
+            if (balance < amount) {
+                return false;
             }
+        } else {
+            return false; // 계좌가 없거나 쿼리 실패
         }
     }
-    
+
     return true;
+}
+
+void BankModel::initializeDatabase()
+{
+    QSqlQuery query;
+    // 계좌 테이블 생성
+    query.exec("CREATE TABLE IF NOT EXISTS accounts ("
+               "accountNumber TEXT PRIMARY KEY, "
+               "accountName TEXT, "
+               "balance REAL)");
+    if (query.lastError().isValid()) {
+        qDebug() << "Error creating accounts table:" << query.lastError().text();
+    }
+
+    // 거래 내역 테이블 생성
+    query.exec("CREATE TABLE IF NOT EXISTS transactions ("
+               "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+               "accountNumber TEXT, "
+               "date TEXT, "
+               "type TEXT, "
+               "amount REAL, "
+               "description TEXT)");
+    if (query.lastError().isValid()) {
+        qDebug() << "Error creating transactions table:" << query.lastError().text();
+    }
+
+    // 초기 데이터 삽입 (필요 시)
+    query.exec("INSERT OR IGNORE INTO accounts (accountNumber, accountName, balance) VALUES "
+               "('1234-5678-9012', '일반 계좌', 1000000), "
+               "('9876-5432-1098', '저축 계좌', 5000000), "
+               "('5555-6666-7777', '투자 계좌', 10000000)");
 }

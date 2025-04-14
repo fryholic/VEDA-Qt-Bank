@@ -97,7 +97,7 @@ AccountWidget::AccountWidget(QWidget *parent) : QWidget(parent)
     accountInfoLayout->addWidget(m_accountNumberLabel);
     accountInfoLayout->addWidget(m_balanceLabel);
     accountInfoLayout->setSpacing(8);
-    accountInfoLayout->setContentsMargins(16, 16, 16, 16);
+    accountInfoLayout->setContentsMargins(16, 10, 16, 30);
     
     // 거래 버튼 영역
     QHBoxLayout *transactionButtonsLayout = new QHBoxLayout();
@@ -124,6 +124,11 @@ AccountWidget::AccountWidget(QWidget *parent) : QWidget(parent)
     m_transactionListWidget->setObjectName("transactionList");
     m_transactionListWidget->setFrameShape(QFrame::NoFrame);
     m_transactionListWidget->setSpacing(8);
+
+    // 스크롤바 숨기기 설정 추가
+    m_transactionListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);  // 수직 스크롤바 항상 숨김
+    m_transactionListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); // 수평 스크롤바 항상 숨김
+
     
     // 메인 레이아웃
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
@@ -150,6 +155,7 @@ void AccountWidget::updateAccountDetails(const QVariantMap &accountDetails)
     
     QLocale locale = QLocale(QLocale::Korean);
     m_balanceLabel->setText(locale.toString(accountDetails["balance"].toDouble(), 'f', 0) + " 원");
+    m_balanceLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 }
 
 void AccountWidget::updateTransactionList(const QVariantList &transactions)

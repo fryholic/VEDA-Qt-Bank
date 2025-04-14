@@ -100,6 +100,11 @@ DashboardWidget::DashboardWidget(QWidget *parent) : QWidget(parent)
     m_accountListWidget->setObjectName("accountList");
     m_accountListWidget->setFrameShape(QFrame::NoFrame);
     m_accountListWidget->setSpacing(10);
+
+    // 스크롤바 숨기기 설정 추가
+    m_accountListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);  // 수직 스크롤바 항상 숨김
+    m_accountListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); // 수평 스크롤바 항상 숨김
+
     
     // 로그아웃 버튼
     m_logoutButton = new QPushButton("로그아웃", this);
