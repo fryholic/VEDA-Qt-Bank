@@ -14,20 +14,22 @@ QLabel {
 /* 타이틀 스타일 */
 #titleLabel {
     font-size: 24px;
-    font-weight: normal;
+    font-weight: 25;
     color: #000000;
     margin-bottom: 20px;
 }
 
 #pageTitle {
     font-size: 18px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
 }
 
 #sectionTitle {
     font-size: 18px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -40,7 +42,8 @@ QLabel {
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     font-size: 16px;
 }
 
@@ -97,7 +100,7 @@ QLabel {
 
 #usernameLabel {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 25;
     color: white;
 }
 
@@ -108,7 +111,8 @@ QLabel {
 
 #totalBalanceLabel {
     font-size: 18px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: white;
 }
 
@@ -127,13 +131,15 @@ QLabel {
     background-color: #FBB584;
     color: #F3732B;
     border-radius: 20px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     font-size: 18px;
 }
 
 #accountName {
     font-size: 16px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
 }
 
@@ -144,7 +150,8 @@ QLabel {
 
 #accountBalance {
     font-size: 16px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #F3732B;
 }
 
@@ -163,7 +170,8 @@ QLabel {
 
 #accountDetailName {
     font-size: 18px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
 }
 
@@ -174,7 +182,8 @@ QLabel {
 
 #accountDetailBalance {
     font-size: 20px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
     margin-top: 5px;
 }
@@ -194,7 +203,8 @@ QLabel {
     background-color: #E8F5E9;
     color: #28A745;
     border-radius: 18px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     font-size: 18px;
 }
 
@@ -202,7 +212,8 @@ QLabel {
     background-color: #FFEBEE;
     color: #DC3545;
     border-radius: 18px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     font-size: 18px;
 }
 
@@ -210,13 +221,15 @@ QLabel {
     background-color: #E3F2FD;
     color: #0056B3;
     border-radius: 18px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     font-size: 18px;
 }
 
 #transactionDescription {
     font-size: 16px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
 }
 
@@ -227,13 +240,15 @@ QLabel {
 
 #depositAmount {
     font-size: 16px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #28A745;
 }
 
 #withdrawAmount {
     font-size: 16px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #DC3545;
 }
 
@@ -253,7 +268,8 @@ QLabel {
 
 #inputTitle {
     font-size: 16px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
     margin-bottom: 10px;
 }
@@ -299,7 +315,8 @@ QLabel {
 
 #completeText {
     font-size: 24px;
-    font-weight: bold;
+    font-family: "Hanwha";
+    font-weight: 25;
     color: #000000;
 }
 
