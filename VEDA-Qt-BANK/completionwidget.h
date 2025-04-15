@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
-#include <QMovie>
 
 class CompletionWidget : public QWidget
 {
@@ -22,7 +21,6 @@ private:
     QLabel *m_completeTextLabel;
     QLabel *m_amountLabel;
     QLabel *m_iconLabel;
-    QMovie *m_movie;
 };
 
 #endif // COMPLETIONWIDGET_H

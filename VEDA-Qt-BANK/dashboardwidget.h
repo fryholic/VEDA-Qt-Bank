@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QListWidget>
 #include <QVBoxLayout>
+#include <QDialog>
 #include "bankmodel.h"
 
 class AccountListItem : public QWidget
@@ -28,6 +29,7 @@ private:
     QLabel *m_accountNameLabel;
     QLabel *m_accountNumberLabel;
     QLabel *m_balanceLabel;
+
 };
 
 class DashboardWidget : public QWidget
@@ -52,8 +54,12 @@ private:
     QLabel *m_totalBalanceLabel;
     QListWidget *m_accountListWidget;
     QPushButton *m_logoutButton;
+    QPushButton *m_addAccountButton; // 계좌 추가 버튼
 
     BankModel *m_bankModel;
+
+private slots:
+    void onAddAccountClicked();
 };
 
 #endif // DASHBOARDWIDGET_H

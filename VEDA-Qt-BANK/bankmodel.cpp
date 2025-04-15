@@ -2,6 +2,7 @@
 #include <QDateTime>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QRandomGenerator>
 
 BankModel::BankModel(QObject *parent) : QObject(parent), isLoggedIn(false)
 {
@@ -46,10 +47,12 @@ void BankModel::setCurrentAccountNumber(const QString &accountNumber)
     }
 }
 
-bool BankModel::login(const QString &username, const QString &password)
-{
-    // 간단한 인증 로직 (실제로는 더 복잡한 인증이 필요)
-    if (password == "2") {
+bool BankModel::login(const QString &username, const QString &password) {
+    QSqlQuery query;
+    query.prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+    query.bindValue(":username", username);
+    query.bindValue(":password", password);
+    if (query.exec() && query.next()) {
         setUserName(username);
         isLoggedIn = true;
         return true;
@@ -76,6 +79,7 @@ QVariantList BankModel::getAccounts() const
     // }
     // return result;
 
+/*
     QVariantList result;
     QSqlQuery query("SELECT * FROM accounts");
     while (query.next()) {
@@ -85,6 +89,22 @@ QVariantList BankModel::getAccounts() const
         accountMap["balance"] = query.value("balance").toDouble();
         result.append(accountMap);
     }
+    return result;
+*/
+    QVariantList result;
+    QSqlQuery query;
+    query.prepare("SELECT * FROM accounts WHERE username = :username");
+    query.bindValue(":username", m_userName);
+    query.exec();
+
+    while (query.next()) {
+        QVariantMap accountMap;
+        accountMap["accountNumber"] = query.value("accountNumber").toString();
+        accountMap["accountName"] = query.value("accountName").toString();
+        accountMap["balance"] = query.value("balance").toDouble();
+        result.append(accountMap);
+    }
+
     return result;
 }
 
@@ -308,14 +328,25 @@ bool BankModel::verifyAmount(double amount, const QString &type, const QString &
 void BankModel::initializeDatabase()
 {
     QSqlQuery query;
+
+    // bankmodel.cpp
+    query.exec("CREATE TABLE IF NOT EXISTS accounts ("
+               "accountNumber TEXT PRIMARY KEY, "
+               "accountName TEXT, "
+               "balance REAL, "
+               "username TEXT)");
+
+/*
     // 계좌 테이블 생성
     query.exec("CREATE TABLE IF NOT EXISTS accounts ("
                "accountNumber TEXT PRIMARY KEY, "
                "accountName TEXT, "
                "balance REAL)");
+*/
     if (query.lastError().isValid()) {
         qDebug() << "Error creating accounts table:" << query.lastError().text();
     }
+
 
     // 거래 내역 테이블 생성
     query.exec("CREATE TABLE IF NOT EXISTS transactions ("
@@ -328,10 +359,57 @@ void BankModel::initializeDatabase()
     if (query.lastError().isValid()) {
         qDebug() << "Error creating transactions table:" << query.lastError().text();
     }
-
+/*
     // 초기 데이터 삽입 (필요 시)
     query.exec("INSERT OR IGNORE INTO accounts (accountNumber, accountName, balance) VALUES "
                "('1234-5678-9012', '일반 계좌', 1000000), "
                "('9876-5432-1098', '저축 계좌', 5000000), "
                "('5555-6666-7777', '투자 계좌', 10000000)");
+
+*/
+    createUserTable();
+
+}
+
+void BankModel::createUserTable() {
+    QSqlQuery query;
+    query.exec("CREATE TABLE IF NOT EXISTS users ("
+               "username TEXT PRIMARY KEY, "
+               "password TEXT)");
+    if (query.lastError().isValid()) {
+        qDebug() << "Error creating users table:" << query.lastError().text();
+    }
+}
+
+bool BankModel::registerUser(const QString &username, const QString &password) {
+    QSqlQuery query;
+    query.prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+    query.bindValue(":username", username);
+    query.bindValue(":password", password); // 실제 서비스에선 해시 필요!
+    if (!query.exec()) {
+        qDebug() << "Register failed:" << query.lastError().text();
+        return false;
+    }
+    return true;
+}
+
+bool BankModel::createAccount(const QString &accountName, double initialBalance)
+{
+    QString accountNumber = QString::number(QRandomGenerator::global()->bounded(1000000000, 9999999999));
+    QString username = m_userName; // 현재 로그인한 사용자 이름
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO accounts (accountNumber, accountName, balance, username) "
+                  "VALUES (:accountNumber, :accountName, :balance, :username)");
+    query.bindValue(":accountNumber", accountNumber);
+    query.bindValue(":accountName", accountName);
+    query.bindValue(":balance", initialBalance);
+    query.bindValue(":username", username);
+
+    if (!query.exec()) {
+        qDebug() << "계좌 생성 실패:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
 }
