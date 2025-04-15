@@ -12,7 +12,7 @@ LoginWidget::LoginWidget(QWidget *parent) : QWidget(parent)
     m_logoLabel->setPixmap(logo.scaled(150, 150, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     m_logoLabel->setAlignment(Qt::AlignCenter);
     
-    m_titleLabel = new QLabel("한화 가상 은행", this);
+    m_titleLabel = new QLabel("VEDA", this);
     m_titleLabel->setAlignment(Qt::AlignCenter);
     m_titleLabel->setObjectName("titleLabel");
     
