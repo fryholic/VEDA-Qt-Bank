@@ -26,7 +26,6 @@ AddAccountDialog::AddAccountDialog(QWidget *parent) : QDialog(parent)
     layout->addWidget(m_addButton);
 
     connect(m_addButton, &QPushButton::clicked, this, &QDialog::accept);
-    // 주석
 }
 
 QString AddAccountDialog::accountName() const {
