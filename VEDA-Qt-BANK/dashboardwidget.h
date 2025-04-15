@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QListWidget>
 #include <QVBoxLayout>
+#include "bankmodel.h"
 
 class AccountListItem : public QWidget
 {
@@ -34,10 +35,13 @@ class DashboardWidget : public QWidget
     Q_OBJECT
     
 public:
-    explicit DashboardWidget(QWidget *parent = nullptr);
+    explicit DashboardWidget(BankModel *model, QWidget *parent = nullptr);
     
     void updateUserInfo(const QString &username, double totalBalance);
     void updateAccountList(const QVariantList &accounts);
+
+protected:
+    void showEvent(QShowEvent *event) override;
     
 signals:
     void logoutRequested();
@@ -48,6 +52,8 @@ private:
     QLabel *m_totalBalanceLabel;
     QListWidget *m_accountListWidget;
     QPushButton *m_logoutButton;
+
+    BankModel *m_bankModel;
 };
 
 #endif // DASHBOARDWIDGET_H

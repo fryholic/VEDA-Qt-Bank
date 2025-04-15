@@ -62,7 +62,7 @@ void AccountListItem::mousePressEvent(QMouseEvent *event)
     QWidget::mousePressEvent(event);
 }
 
-DashboardWidget::DashboardWidget(QWidget *parent) : QWidget(parent)
+DashboardWidget::DashboardWidget(BankModel *model, QWidget *parent) : QWidget(parent), m_bankModel(model)
 {
     // 상단 헤더 영역
     QWidget *headerWidget = new QWidget(this);
@@ -150,5 +150,14 @@ void DashboardWidget::updateAccountList(const QVariantList &accounts)
         m_accountListWidget->setItemWidget(item, accountItem);
         
         connect(accountItem, &AccountListItem::clicked, this, &DashboardWidget::accountSelected);
+    }
+}
+
+void DashboardWidget::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event);
+    if (m_bankModel) {
+        updateAccountList(m_bankModel->getAccounts());
+        updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
     }
 }

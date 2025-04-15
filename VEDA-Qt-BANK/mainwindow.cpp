@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     
     // 화면 위젯 초기화
     m_loginWidget = new LoginWidget(this);
-    m_dashboardWidget = new DashboardWidget(this);
+    m_dashboardWidget = new DashboardWidget(m_bankModel, this);
     m_accountWidget = new AccountWidget(this);
     m_transactionWidget = new TransactionWidget(this);
     m_verificationWidget = new VerificationWidget(this);
@@ -74,14 +74,13 @@ void MainWindow::showLoginScreen()
 void MainWindow::showDashboardScreen()
 {
     m_screenStack.push(m_stackedWidget->currentIndex());
-    m_dashboardWidget->updateAccountList(m_bankModel->getAccounts());
-    m_dashboardWidget->updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
     m_stackedWidget->setCurrentWidget(m_dashboardWidget);
 }
 
 void MainWindow::showAccountScreen(const QString &accountNumber)
 {
-    m_screenStack.push(m_stackedWidget->currentIndex());
+    // m_screenStack.clear(); // 이전 스택 비우기
+    m_screenStack.push(m_stackedWidget->indexOf(m_dashboardWidget));
     m_currentAccountNumber = accountNumber;
     
     QVariantMap accountDetails = m_bankModel->getAccountDetails(accountNumber);
@@ -188,5 +187,7 @@ void MainWindow::onBackRequested()
     if (!m_screenStack.isEmpty()) {
         int previousScreen = m_screenStack.pop();
         m_stackedWidget->setCurrentIndex(previousScreen);
+    } else {
+        showDashboardScreen(); // 안전 장치
     }
 }
