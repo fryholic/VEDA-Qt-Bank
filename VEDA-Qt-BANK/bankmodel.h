@@ -45,6 +45,7 @@ public:
     QString currentAccountNumber() const { return m_currentAccountNumber; }
     void setCurrentAccountNumber(const QString &accountNumber);
     
+    bool login(const QString &username, const QString &password);
     void logout();
     QVariantList getAccounts() const;
     QVariantMap getAccountDetails(const QString &accountNumber) const;
@@ -53,13 +54,7 @@ public:
     bool withdraw(const QString &accountNumber, double amount, const QString &verificationCode);
     bool transfer(const QString &fromAccount, const QString &toAccount, double amount, const QString &verificationCode);
     bool verifyAmount(double amount, const QString &type, const QString &accountNumber = QString());
-
-    // bankmodel.h 안에 public 함수 추가
-    bool registerUser(const QString &username, const QString &password); // 회원가입
-    bool login(const QString &username, const QString &password); // 로그인
-
-    bool createAccount(const QString &accountName, double initialBalance);
-
+    
 signals:
     void userNameChanged();
     void totalBalanceChanged();
@@ -77,9 +72,6 @@ private:
     
     bool isLoggedIn;
     const double MAX_AMOUNT = 4200000000.0; // 42억
-
-    // private 함수 안에 추가
-    void createUserTable(); // 사용자 테이블 생성
 };
 
 #endif // BANKMODEL_H

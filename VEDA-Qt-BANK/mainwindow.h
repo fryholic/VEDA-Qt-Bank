@@ -10,7 +10,6 @@
 #include "transactionwidget.h"
 #include "verificationwidget.h"
 #include "completionwidget.h"
-#include "registerdialog.h"
 #include <QStack>
 
 class MainWindow : public QMainWindow

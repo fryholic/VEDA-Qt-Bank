@@ -6,6 +6,8 @@
 
 CompletionWidget::CompletionWidget(QWidget *parent) : QWidget(parent)
 {
+    m_movie = nullptr;
+
     // 완료 아이콘
     m_iconLabel = new QLabel(this);
     m_iconLabel->setObjectName("completeIcon");
@@ -51,6 +53,13 @@ CompletionWidget::CompletionWidget(QWidget *parent) : QWidget(parent)
 
 void CompletionWidget::setupForTransaction(const QString &transactionType, double amount)
 {
+    if(m_movie){
+        m_movie->deleteLater();
+        m_movie = nullptr;
+    }
+
+    QString gifPath = ":/images/check.gif";
+
     // 거래 유형에 따른 텍스트 설정
     if (transactionType == "deposit") {
         m_completeTextLabel->setText("입금이 완료되었습니다");
@@ -63,6 +72,11 @@ void CompletionWidget::setupForTransaction(const QString &transactionType, doubl
         m_iconLabel->setProperty("transactionType", "transfer");
     }
     
+    m_movie = new QMovie(gifPath, QByteArray(), this);
+    m_iconLabel->setMovie(m_movie);
+    m_movie->start();
+
+
     // 금액 표시
     QLocale locale = QLocale(QLocale::Korean);
     m_amountLabel->setText(locale.toString(amount, 'f', 0) + " 원");
