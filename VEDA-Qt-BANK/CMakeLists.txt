@@ -33,8 +33,6 @@ set(PROJECT_SOURCES
 
 qt_add_executable(HanwhaBankApp
     ${PROJECT_SOURCES}
-    registerdialog.h registerdialog.cpp
-    addaccountdialog.h addaccountdialog.cpp
 
 )
 

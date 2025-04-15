@@ -1,1 +1,0 @@
-# VEDA-Qt-Bank

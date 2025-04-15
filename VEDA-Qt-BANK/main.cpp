@@ -8,14 +8,15 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     
     // 앱 정보 설정
-    app.setApplicationName("한화 가상 은행");
-    app.setOrganizationName("Hanwha");
-    app.setOrganizationDomain("hanwha.com");
+    app.setApplicationName("VEDA");
     app.setWindowIcon(QIcon(":/images/bank_logo.png"));
     
     // 폰트 로드
     QFontDatabase::addApplicationFont(":/fonts/05HanwhaGothicEL.ttf");
     QFontDatabase::addApplicationFont(":/fonts/06HanwhaGothicL.ttf");
+
+    QFontDatabase::addApplicationFont(":/fonts/02HanwhaR.ttf");
+    QFontDatabase::addApplicationFont(":/fonts/02HanwhaL.ttf");
     
     // 스타일시트 설정
     QFile styleFile(":/styles/style.qss");
