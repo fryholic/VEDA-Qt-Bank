@@ -7,5 +7,6 @@
         <file>styles/style.qss</file>
         <file>fonts/06HanwhaGothicL.ttf</file>
         <file>fonts/07HanwhaGothicEL.ttf</file>
+        <file>fonts/03HanwhaL.ttf</file>
     </qresource>
 </RCC>

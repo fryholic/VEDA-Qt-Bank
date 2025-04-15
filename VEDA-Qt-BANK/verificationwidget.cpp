@@ -46,7 +46,7 @@ VerificationWidget::VerificationWidget(QWidget *parent) : QWidget(parent)
     verificationCardLayout->addWidget(m_verificationEdit);
     verificationCardLayout->addWidget(hintLabel);
     verificationCardLayout->setSpacing(10);
-    verificationCardLayout->setContentsMargins(16, 16, 16, 16);
+    verificationCardLayout->setContentsMargins(16, 16, 16, 30);
     
     // 다음 버튼
     m_nextButton = new QPushButton("다음", this);
