@@ -79,7 +79,6 @@ void MainWindow::showDashboardScreen()
 
 void MainWindow::showAccountScreen(const QString &accountNumber)
 {
-    // m_screenStack.clear(); // 이전 스택 비우기
     m_screenStack.push(m_stackedWidget->indexOf(m_dashboardWidget));
     m_currentAccountNumber = accountNumber;
     

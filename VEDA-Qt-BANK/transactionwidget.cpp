@@ -58,7 +58,7 @@ TransactionWidget::TransactionWidget(QWidget *parent) : QWidget(parent)
     amountInputCardLayout->addWidget(m_amountErrorLabel);
     amountInputCardLayout->addWidget(m_limitInfoLabel);
     amountInputCardLayout->setSpacing(10);
-    amountInputCardLayout->setContentsMargins(16, 16, 16, 16);
+    amountInputCardLayout->setContentsMargins(16, 16, 16, 30);
     
     // 다음 버튼
     m_amountNextButton = new QPushButton("다음", m_amountInputWidget);
