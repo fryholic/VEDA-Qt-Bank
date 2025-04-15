@@ -19,9 +19,9 @@ AddAccountDialog::AddAccountDialog(QWidget *parent) : QDialog(parent)
     m_addButton = new QPushButton("계좌 생성", this);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(new QLabel("계좌 이름:"));
+    layout->addWidget(new QLabel("계좌이름"));
     layout->addWidget(m_nameEdit);
-    layout->addWidget(new QLabel("초기 금액:"));
+    layout->addWidget(new QLabel("초기잔액"));
     layout->addWidget(m_balanceEdit);
     layout->addWidget(m_addButton);
 

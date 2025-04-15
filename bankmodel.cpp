@@ -347,7 +347,7 @@ void BankModel::initializeDatabase()
         qDebug() << "Error creating accounts table:" << query.lastError().text();
     }
 
-/*
+
     // 거래 내역 테이블 생성
     query.exec("CREATE TABLE IF NOT EXISTS transactions ("
                "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -359,14 +359,14 @@ void BankModel::initializeDatabase()
     if (query.lastError().isValid()) {
         qDebug() << "Error creating transactions table:" << query.lastError().text();
     }
-
+/*
     // 초기 데이터 삽입 (필요 시)
     query.exec("INSERT OR IGNORE INTO accounts (accountNumber, accountName, balance) VALUES "
                "('1234-5678-9012', '일반 계좌', 1000000), "
                "('9876-5432-1098', '저축 계좌', 5000000), "
                "('5555-6666-7777', '투자 계좌', 10000000)");
-*/
 
+*/
     createUserTable();
 
 }
