@@ -28,6 +28,8 @@ set(PROJECT_SOURCES
     verificationwidget.cpp
     completionwidget.h
     completionwidget.cpp
+    checkanimationwidget.h
+    checkanimationwidget.cpp
     resources.qrc
 )
 

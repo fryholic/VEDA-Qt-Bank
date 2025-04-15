@@ -1,16 +1,15 @@
 #include "completionwidget.h"
+#include "checkanimationwidget.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLocale>
 #include <QStyle>
+#include <QTimer>
 
 CompletionWidget::CompletionWidget(QWidget *parent) : QWidget(parent)
 {
-    // 완료 아이콘
-    m_iconLabel = new QLabel(this);
-    m_iconLabel->setObjectName("completeIcon");
-    m_iconLabel->setFixedSize(120, 120);
-    m_iconLabel->setAlignment(Qt::AlignCenter);
+    // 완료 아이콘 (애니메이션 위젯으로 변경)
+    m_checkAnimation = new CheckAnimationWidget(this);
     
     // 완료 텍스트
     m_completeTextLabel = new QLabel(this);
@@ -32,7 +31,7 @@ CompletionWidget::CompletionWidget(QWidget *parent) : QWidget(parent)
     
     QVBoxLayout *centerLayout = new QVBoxLayout();
     centerLayout->setSpacing(30);
-    centerLayout->addWidget(m_iconLabel, 0, Qt::AlignCenter);
+    centerLayout->addWidget(m_checkAnimation, 0, Qt::AlignCenter);
     centerLayout->addWidget(m_completeTextLabel);
     centerLayout->addWidget(m_amountLabel);
     centerLayout->addWidget(backToAccountButton);
@@ -54,20 +53,19 @@ void CompletionWidget::setupForTransaction(const QString &transactionType, doubl
     // 거래 유형에 따른 텍스트 설정
     if (transactionType == "deposit") {
         m_completeTextLabel->setText("입금이 완료되었습니다");
-        m_iconLabel->setProperty("transactionType", "deposit");
     } else if (transactionType == "withdraw") {
         m_completeTextLabel->setText("출금이 완료되었습니다");
-        m_iconLabel->setProperty("transactionType", "withdraw");
     } else {
         m_completeTextLabel->setText("송금이 완료되었습니다");
-        m_iconLabel->setProperty("transactionType", "transfer");
     }
+    
+    // 애니메이션 위젯 설정
+    m_checkAnimation->setTransactionType(transactionType);
     
     // 금액 표시
     QLocale locale = QLocale(QLocale::Korean);
     m_amountLabel->setText(locale.toString(amount, 'f', 0) + " 원");
     
-    // 스타일 업데이트
-    m_iconLabel->style()->unpolish(m_iconLabel);
-    m_iconLabel->style()->polish(m_iconLabel);
+    // 애니메이션 시작 (약간의 지연 후)
+    QTimer::singleShot(100, m_checkAnimation, &CheckAnimationWidget::startAnimation);
 }

@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QPushButton>
 
+class CheckAnimationWidget;
+
 class CompletionWidget : public QWidget
 {
     Q_OBJECT
@@ -20,7 +22,7 @@ signals:
 private:
     QLabel *m_completeTextLabel;
     QLabel *m_amountLabel;
-    QLabel *m_iconLabel;
+    CheckAnimationWidget *m_checkAnimation;
 };
 
 #endif // COMPLETIONWIDGET_H
