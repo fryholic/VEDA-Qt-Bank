@@ -9,5 +9,6 @@
         <file>fonts/07HanwhaGothicEL.ttf</file>
         <file>fonts/02HanwhaR.ttf</file>
         <file>fonts/03HanwhaL.ttf</file>
+        <file>images/check.gif</file>
     </qresource>
 </RCC>
