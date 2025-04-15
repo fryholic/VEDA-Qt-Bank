@@ -1,0 +1,309 @@
+/* 전역 스타일 */
+QWidget {
+    font-family: "HanwhaGothic";
+    background-color: #F8F9FA;
+    color: #000000;
+}
+
+/* 모든 QLabel에 대한 기본 스타일 추가 */
+QLabel {
+    background-color: transparent;  /* 배경을 투명하게 설정 */
+}
+
+
+/* 타이틀 스타일 */
+#titleLabel {
+    font-size: 24px;
+    font-weight: normal;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+#pageTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#sectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 버튼 스타일 */
+#primaryButton {
+    background-color: #F3732B;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#primaryButton:hover {
+    background-color: #F89B6C;
+}
+
+#primaryButton:pressed {
+    background-color: #FBB584;
+}
+
+#primaryButton:disabled {
+    background-color: #CCCCCC;
+    color: #666666;
+}
+
+#secondaryButton {
+    background-color: white;
+    color: #495057;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+#secondaryButton:hover {
+    background-color: #F5F5F5;
+}
+
+#secondaryButton:pressed {
+    background-color: #EEEEEE;
+}
+
+/* 입력 필드 스타일 */
+#loginInput, #amountInput, #accountInput, #verificationInput {
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#loginInput:focus, #amountInput:focus, #accountInput:focus, #verificationInput:focus {
+    border: 1px solid #F3732B;
+}
+
+/* 헤더 스타일 */
+#dashboardHeader {
+    background-color: #F3732B;
+    color: white;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+#usernameLabel {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+#totalBalanceTitle {
+    font-size: 14px;
+    color: white;
+}
+
+#totalBalanceLabel {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+/* 계좌 목록 스타일 */
+#accountList {
+    background-color: transparent;
+}
+
+#accountListItem {
+    background-color: white;
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+}
+
+#accountIcon {
+    background-color: #FBB584;
+    color: #F3732B;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#accountName {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#accountNumber {
+    font-size: 14px;
+    color: #495057;
+}
+
+#accountBalance {
+    font-size: 16px;
+    font-weight: bold;
+    color: #F3732B;
+}
+
+/* 계좌 정보 카드 스타일 */
+#accountInfoCard {
+    background-color: #FBB584;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+#cardTitle {
+    font-size: 14px;
+    color: #000000;
+}
+
+#accountDetailName {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#accountDetailNumber {
+    font-size: 14px;
+    color: #000000;
+}
+
+#accountDetailBalance {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 5px;
+}
+
+/* 거래 내역 스타일 */
+#transactionList {
+    background-color: transparent;
+}
+
+#transactionListItem {
+    background-color: white;
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+}
+
+#depositIcon {
+    background-color: #E8F5E9;
+    color: #28A745;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#withdrawIcon {
+    background-color: #FFEBEE;
+    color: #DC3545;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#transferIcon {
+    background-color: #E3F2FD;
+    color: #0056B3;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#transactionDescription {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#transactionDate {
+    font-size: 14px;
+    color: #495057;
+}
+
+#depositAmount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28A745;
+}
+
+#withdrawAmount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #DC3545;
+}
+
+#emptyTransactionLabel {
+    font-size: 16px;
+    color: #495057;
+    padding: 20px;
+}
+
+/* 입력 카드 스타일 */
+#inputCard {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+#inputTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+#errorLabel {
+    font-size: 14px;
+    color: #DC3545;
+    margin-top: 5px;
+}
+
+#infoLabel {
+    font-size: 14px;
+    color: white;
+    background-color: #333333;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#hintLabel {
+    font-size: 12px;
+    color: #495057;
+    margin-top: 5px;
+}
+
+/* 완료 화면 스타일 */
+#completeIcon {
+    background-color: white;
+    border-radius: 60px;
+}
+
+#completeIcon[transactionType="deposit"] {
+    border: 5px solid #28A745;
+}
+
+#completeIcon[transactionType="withdraw"] {
+    border: 5px solid #FFC107;
+}
+
+#completeIcon[transactionType="transfer"] {
+    border: 5px solid #0056B3;
+}
+
+#completeText {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#completeAmount {
+    font-size: 20px;
+    color: #F3732B;
+}

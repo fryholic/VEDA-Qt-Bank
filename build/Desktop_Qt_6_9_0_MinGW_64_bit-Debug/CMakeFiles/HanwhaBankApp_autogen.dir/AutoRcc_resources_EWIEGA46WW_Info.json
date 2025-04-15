@@ -1,0 +1,31 @@
+{
+	"BUILD_DIR" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/HanwhaBankApp_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank",
+	"CMAKE_SOURCE_DIR" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/HanwhaBankApp_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/images/bank_logo.png",
+		"C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/images/info_icon.png",
+		"C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/images/complete_icon.png",
+		"C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/images/arrow_right.png",
+		"C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/fonts/07HanwhaGothicEL.ttf",
+		"C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/fonts/06HanwhaGothicL.ttf",
+		"C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/styles/style.qss"
+	],
+	"LOCK_FILE" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/HanwhaBankApp_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.9.0/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/HanwhaBankApp_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/Users/2-29/Documents/GitHub/VEDA-Qt-Bank/resources.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}

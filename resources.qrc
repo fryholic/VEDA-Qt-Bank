@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/bank_logo.png</file>
+        <file>images/arrow_right.png</file>
+        <file>images/complete_icon.png</file>
+        <file>images/info_icon.png</file>
+        <file>styles/style.qss</file>
+        <file>fonts/06HanwhaGothicL.ttf</file>
+        <file>fonts/07HanwhaGothicEL.ttf</file>
+    </qresource>
+</RCC>
