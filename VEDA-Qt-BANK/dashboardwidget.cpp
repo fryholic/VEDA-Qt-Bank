@@ -1,4 +1,6 @@
 #include "dashboardwidget.h"
+#include "addaccountdialog.h"
+
 #include <QMouseEvent>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -16,7 +18,7 @@ AccountListItem::AccountListItem(const QVariantMap &accountData, QWidget *parent
     iconLabel->setAlignment(Qt::AlignCenter);
     iconLabel->setObjectName("accountIcon");
     iconLabel->setText(accountData["accountName"].toString().left(1));
-    
+
     // 계좌 정보 레이블
     m_accountNameLabel = new QLabel(accountData["accountName"].toString(), this);
     m_accountNameLabel->setObjectName("accountName");
@@ -48,7 +50,7 @@ AccountListItem::AccountListItem(const QVariantMap &accountData, QWidget *parent
     mainLayout->addWidget(m_balanceLabel);
     mainLayout->addWidget(arrowLabel);
     mainLayout->setContentsMargins(16, 16, 16, 16);
-    
+
     // 스타일 설정
     setObjectName("accountListItem");
     setCursor(Qt::PointingHandCursor);
@@ -92,6 +94,10 @@ DashboardWidget::DashboardWidget(BankModel *model, QWidget *parent) : QWidget(pa
     headerLayout->addLayout(balanceLayout);
     headerLayout->setContentsMargins(20, 20, 20, 20);
     
+    // 계좌 정보 추가 레이블
+    m_addAccountButton = new QPushButton("계좌 추가", this);
+    m_addAccountButton->setObjectName("secondaryButton");
+
     // 계좌 목록 영역
     QLabel *accountListTitle = new QLabel("전체 계좌 리스트", this);
     accountListTitle->setObjectName("sectionTitle");
@@ -119,13 +125,17 @@ DashboardWidget::DashboardWidget(BankModel *model, QWidget *parent) : QWidget(pa
     
     QHBoxLayout *bottomLayout = new QHBoxLayout();
     bottomLayout->addStretch();
-    bottomLayout->addWidget(m_logoutButton);
+    bottomLayout->addWidget(m_addAccountButton);
+    bottomLayout->addWidget(m_logoutButton);    
     
     mainLayout->addLayout(bottomLayout);
     mainLayout->setContentsMargins(20, 20, 20, 20);
     
     // 시그널-슬롯 연결
     connect(m_logoutButton, &QPushButton::clicked, this, &DashboardWidget::logoutRequested);
+    connect(m_addAccountButton, &QPushButton::clicked, this, &DashboardWidget::onAddAccountClicked);
+
+
 }
 
 void DashboardWidget::updateUserInfo(const QString &username, double totalBalance)
@@ -159,5 +169,21 @@ void DashboardWidget::showEvent(QShowEvent *event)
     if (m_bankModel) {
         updateAccountList(m_bankModel->getAccounts());
         updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
+    }
+}
+
+void DashboardWidget::onAddAccountClicked()
+{
+    AddAccountDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        QString name = dialog.accountName();
+        double balance = dialog.initialBalance();
+
+        if (!name.isEmpty() && balance >= 0) {
+            if (m_bankModel->createAccount(name, balance)) {
+                updateAccountList(m_bankModel->getAccounts());
+                updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
+            }
+        }
     }
 }

@@ -57,6 +57,18 @@ MainWindow::MainWindow(QWidget *parent)
         showAccountScreen(m_currentAccountNumber);
     });
     
+    connect(m_loginWidget, &LoginWidget::registerRequested, this, [&]() {
+        RegisterDialog dialog;
+        connect(&dialog, &RegisterDialog::registerUser, this, [&](const QString &id, const QString &pw) {
+            if (m_bankModel->registerUser(id, pw)) {
+                QMessageBox::information(nullptr, "회원가입", "회원가입이 완료되었습니다.");
+            } else {
+                QMessageBox::warning(nullptr, "회원가입", "이미 존재하는 아이디입니다.");
+            }
+        });
+        dialog.exec();
+    });
+
     // 초기 화면 표시
     showLoginScreen();
 }
