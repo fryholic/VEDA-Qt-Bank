@@ -1,0 +1,138 @@
+.TH "BankModel" 3 "VEDA-Qt-BANK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BankModel
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <bankmodel\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBuserNameChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBtotalBalanceChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBcurrentAccountNumberChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBtransactionCompleted\fP (const QString &type, qint64 amount)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBankModel\fP (QObject *parent=nullptr)"
+.br
+.ti -1c
+.RI "\fB~BankModel\fP ()"
+.br
+.ti -1c
+.RI "QString \fBuserName\fP () const"
+.br
+.ti -1c
+.RI "void \fBsetUserName\fP (const QString &name)"
+.br
+.ti -1c
+.RI "qint64 \fBtotalBalance\fP () const"
+.br
+.ti -1c
+.RI "QString \fBcurrentAccountNumber\fP () const"
+.br
+.ti -1c
+.RI "void \fBsetCurrentAccountNumber\fP (const QString &accountNumber)"
+.br
+.ti -1c
+.RI "void \fBlogout\fP ()"
+.br
+.ti -1c
+.RI "QVariantList \fBgetAccounts\fP () const"
+.br
+.ti -1c
+.RI "QVariantMap \fBgetAccountDetails\fP (const QString &accountNumber) const"
+.br
+.ti -1c
+.RI "QVariantList \fBgetTransactions\fP (const QString &accountNumber) const"
+.br
+.ti -1c
+.RI "bool \fBdeposit\fP (const QString &accountNumber, qint64 amount, const QString &verificationCode)"
+.br
+.ti -1c
+.RI "bool \fBwithdraw\fP (const QString &accountNumber, qint64 amount, const QString &verificationCode)"
+.br
+.ti -1c
+.RI "bool \fBtransfer\fP (const QString &fromAccount, const QString &toAccount, qint64 amount, const QString &verificationCode)"
+.br
+.ti -1c
+.RI "bool \fBverifyAmount\fP (qint64 amount, const QString &type, const QString &accountNumber=QString())"
+.br
+.ti -1c
+.RI "bool \fBregisterUser\fP (const QString &username, const QString &password)"
+.br
+.ti -1c
+.RI "bool \fBlogin\fP (const QString &username, const QString &password)"
+.br
+.ti -1c
+.RI "bool \fBcreateAccount\fP (const QString &accountName, const QString &accountNumber)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BankModel::BankModel (QObject * parent = \fRnullptr\fP)\fR [explicit]\fP"
+
+.SS "BankModel::~BankModel ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool BankModel::createAccount (const QString & accountName, const QString & accountNumber)"
+
+.SS "QString BankModel::currentAccountNumber () const\fR [inline]\fP"
+
+.SS "void BankModel::currentAccountNumberChanged ()\fR [signal]\fP"
+
+.SS "bool BankModel::deposit (const QString & accountNumber, qint64 amount, const QString & verificationCode)"
+
+.SS "QVariantMap BankModel::getAccountDetails (const QString & accountNumber) const"
+
+.SS "QVariantList BankModel::getAccounts () const"
+
+.SS "QVariantList BankModel::getTransactions (const QString & accountNumber) const"
+
+.SS "bool BankModel::login (const QString & username, const QString & password)"
+
+.SS "void BankModel::logout ()"
+
+.SS "bool BankModel::registerUser (const QString & username, const QString & password)"
+
+.SS "void BankModel::setCurrentAccountNumber (const QString & accountNumber)"
+
+.SS "void BankModel::setUserName (const QString & name)"
+
+.SS "qint64 BankModel::totalBalance () const"
+
+.SS "void BankModel::totalBalanceChanged ()\fR [signal]\fP"
+
+.SS "void BankModel::transactionCompleted (const QString & type, qint64 amount)\fR [signal]\fP"
+
+.SS "bool BankModel::transfer (const QString & fromAccount, const QString & toAccount, qint64 amount, const QString & verificationCode)"
+
+.SS "QString BankModel::userName () const\fR [inline]\fP"
+
+.SS "void BankModel::userNameChanged ()\fR [signal]\fP"
+
+.SS "bool BankModel::verifyAmount (qint64 amount, const QString & type, const QString & accountNumber = \fRQString()\fP)"
+
+.SS "bool BankModel::withdraw (const QString & accountNumber, qint64 amount, const QString & verificationCode)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VEDA-Qt-BANK from the source code\&.

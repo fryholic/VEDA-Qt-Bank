@@ -1,0 +1,9 @@
+<map id="BankModel::transactionCompleted" name="BankModel::transactionCompleted">
+<area shape="rect" id="Node000001" title=" " alt="" coords="200,56,421,83"/>
+<area shape="rect" id="Node000002" href="$class_bank_model.html#aada2aabdd10b84a152bba1599da65f6c" title=" " alt="" coords="10,5,147,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,55,142,35,143,30,232,50"/>
+<area shape="rect" id="Node000003" href="$class_bank_model.html#aaf69418d02fd0366007dcdcab2fa2c36" title=" " alt="" coords="9,56,148,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,72,148,72,148,67,184,67"/>
+<area shape="rect" id="Node000004" href="$class_bank_model.html#a0ffdefbb4cb89984d6288b1d32a5b911" title=" " alt="" coords="5,107,152,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="232,89,143,109,142,103,231,84"/>
+</map>

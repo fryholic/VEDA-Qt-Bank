@@ -1,0 +1,53 @@
+.TH "AccountWidget" 3 "VEDA-Qt-BANK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AccountWidget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <accountwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBbackRequested\fP ()"
+.br
+.ti -1c
+.RI "void \fBtransactionRequested\fP (const QString &accountNumber, const QString &transactionType)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAccountWidget\fP (QWidget *parent=nullptr)"
+.br
+.ti -1c
+.RI "void \fBupdateAccountDetails\fP (const QVariantMap &accountDetails)"
+.br
+.ti -1c
+.RI "void \fBupdateTransactionList\fP (const QVariantList &transactions)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AccountWidget::AccountWidget (QWidget * parent = \fRnullptr\fP)\fR [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void AccountWidget::backRequested ()\fR [signal]\fP"
+
+.SS "void AccountWidget::transactionRequested (const QString & accountNumber, const QString & transactionType)\fR [signal]\fP"
+
+.SS "void AccountWidget::updateAccountDetails (const QVariantMap & accountDetails)"
+
+.SS "void AccountWidget::updateTransactionList (const QVariantList & transactions)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VEDA-Qt-BANK from the source code\&.

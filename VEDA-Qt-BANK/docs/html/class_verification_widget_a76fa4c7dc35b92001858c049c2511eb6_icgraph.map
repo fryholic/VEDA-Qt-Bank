@@ -1,0 +1,7 @@
+<map id="VerificationWidget::backRequested" name="VerificationWidget::backRequested">
+<area shape="rect" id="Node000001" title=" " alt="" coords="233,27,359,69"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="5,5,185,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,39,185,34,186,29,218,34"/>
+<area shape="rect" id="Node000003" href="$class_verification_widget.html#a9a6ab3553539aaac4a0dbe68afef8673" title=" " alt="" coords="28,56,162,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,62,163,70,162,65,217,57"/>
+</map>

@@ -1,0 +1,22 @@
+<map id="accountwidget.cpp" name="accountwidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="462,5,592,32"/>
+<area shape="rect" id="Node000002" href="$accountwidget_8h.html" title=" " alt="" coords="241,80,357,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,35,354,77,353,72,486,30"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="429,155,531,181"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="508,34,484,54,465,81,462,95,462,111,470,140,465,141,457,111,456,95,460,79,480,51,505,30"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="475,80,578,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="530,33,530,64,524,64,524,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="603,80,701,107"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="550,30,619,70,616,74,547,35"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="726,80,795,107"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="568,30,711,74,710,79,567,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,78,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="255,110,94,155,92,150,253,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,155,165,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="271,110,178,150,176,145,269,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="189,155,288,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="290,109,261,145,257,141,286,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="312,155,406,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="311,106,341,141,337,145,307,109"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="331,105,435,146,433,151,329,110"/>
+</map>

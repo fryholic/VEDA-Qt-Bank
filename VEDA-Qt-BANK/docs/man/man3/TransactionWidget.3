@@ -1,0 +1,58 @@
+.TH "TransactionWidget" 3 "VEDA-Qt-BANK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TransactionWidget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <transactionwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBbackRequested\fP ()"
+.br
+.ti -1c
+.RI "void \fBamountEntered\fP (double amount)"
+.br
+.ti -1c
+.RI "void \fBtargetAccountEntered\fP (const QString &targetAccount)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTransactionWidget\fP (\fBBankModel\fP *bankModel, QWidget *parent=nullptr)"
+.br
+.ti -1c
+.RI "void \fBsetupForTransaction\fP (const QString &transactionType, const QVariantMap &accountDetails)"
+.br
+.ti -1c
+.RI "void \fBshowTargetAccountInput\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TransactionWidget::TransactionWidget (\fBBankModel\fP * bankModel, QWidget * parent = \fRnullptr\fP)\fR [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void TransactionWidget::amountEntered (double amount)\fR [signal]\fP"
+
+.SS "void TransactionWidget::backRequested ()\fR [signal]\fP"
+
+.SS "void TransactionWidget::setupForTransaction (const QString & transactionType, const QVariantMap & accountDetails)"
+
+.SS "void TransactionWidget::showTargetAccountInput ()"
+
+.SS "void TransactionWidget::targetAccountEntered (const QString & targetAccount)\fR [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VEDA-Qt-BANK from the source code\&.

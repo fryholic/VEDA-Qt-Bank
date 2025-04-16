@@ -2,10 +2,9 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLocale>
-#include <QDoubleValidator>
 #include <QRegularExpressionValidator>
 
-TransactionWidget::TransactionWidget(QWidget *parent) : QWidget(parent)
+TransactionWidget::TransactionWidget(BankModel *bankModel, QWidget *parent) : QWidget(parent), m_bankModel(bankModel)
 {
     m_stackedWidget = new QStackedWidget(this);
     
@@ -39,10 +38,9 @@ TransactionWidget::TransactionWidget(QWidget *parent) : QWidget(parent)
     m_amountEdit = new QLineEdit(m_amountInputWidget);
     m_amountEdit->setPlaceholderText("금액을 입력하세요");
     m_amountEdit->setObjectName("amountInput");
-    
+
     // 숫자만 입력 가능하도록 설정
-    QDoubleValidator *validator = new QDoubleValidator(0, 4200000000, 0, this);
-    validator->setNotation(QDoubleValidator::StandardNotation);
+    QInt64Validator *validator = new QInt64Validator(0, 4200000000, this);
     m_amountEdit->setValidator(validator);
     
     m_amountErrorLabel = new QLabel(m_amountInputWidget);
@@ -119,7 +117,7 @@ TransactionWidget::TransactionWidget(QWidget *parent) : QWidget(parent)
     targetInputCardLayout->addWidget(m_targetAccountErrorLabel);
     targetInputCardLayout->addWidget(accountFormatLabel);
     targetInputCardLayout->setSpacing(10);
-    targetInputCardLayout->setContentsMargins(16, 16, 16, 16);
+    targetInputCardLayout->setContentsMargins(16, 16, 16, 33);
     
     // 다음 버튼
     m_targetNextButton = new QPushButton("다음", m_targetAccountWidget);
@@ -155,7 +153,7 @@ TransactionWidget::TransactionWidget(QWidget *parent) : QWidget(parent)
 void TransactionWidget::setupForTransaction(const QString &transactionType, const QVariantMap &accountDetails)
 {
     m_transactionType = transactionType;
-    m_accountBalance = accountDetails["balance"].toDouble();
+    m_accountBalance = accountDetails["balance"].toLongLong();
     
     // 화면 타이틀 설정
     if (transactionType == "deposit") {
@@ -169,8 +167,12 @@ void TransactionWidget::setupForTransaction(const QString &transactionType, cons
     // 한도 정보 설정
     QLocale locale = QLocale(QLocale::Korean);
     if (transactionType == "deposit") {
-        m_limitInfoLabel->setText("0원 초과 ~ 4,200,000,000원 이하로 입력해주세요");
+        m_limitInfoLabel->setVisible(false);
     } else {
+        if(!m_limitInfoLabel->isVisible())
+        {
+            m_limitInfoLabel->setVisible(true);
+        }
         m_limitInfoLabel->setText("0원 초과 ~ " + locale.toString(m_accountBalance, 'f', 0) + "원 이하로 입력해주세요");
     }
     
@@ -192,7 +194,7 @@ void TransactionWidget::showTargetAccountInput()
 void TransactionWidget::validateAmount()
 {
     bool ok;
-    double amount = m_amountEdit->text().toDouble(&ok);
+    qint64 amount = m_amountEdit->text().toLongLong(&ok);
     
     if (!ok || amount <= 0) {
         m_amountErrorLabel->setText("0원 초과의 금액을 입력해주세요");
@@ -216,7 +218,7 @@ void TransactionWidget::validateAmount()
 void TransactionWidget::onNextButtonClicked()
 {
     bool ok;
-    double amount = m_amountEdit->text().toDouble(&ok);
+    qint64 amount = m_amountEdit->text().toLongLong(&ok);
     
     if (ok && amount > 0 && amount <= 4200000000 && 
         (m_transactionType == "deposit" || amount <= m_accountBalance)) {
@@ -235,18 +237,13 @@ void TransactionWidget::onTargetNextButtonClicked()
         return;
     }
 
+    QVariantMap accountDetails = m_bankModel->getAccountDetails(targetAccount);
+    if (accountDetails.isEmpty()) {
+        m_targetAccountErrorLabel->setText("유효하지 않은 계좌 번호입니다.");
+        m_targetAccountErrorLabel->setVisible(true);
+        return;
+    }
+
     m_targetAccountErrorLabel->setVisible(false);
     emit targetAccountEntered(targetAccount);
 }
-
-
-/*
-void TransactionWidget::onTargetNextButtonClicked()
-{
-    QString targetAccount = m_targetAccountEdit->text();
-    
-    if (!targetAccount.isEmpty()) {
-        emit targetAccountEntered(targetAccount);
-    }
-}
-*/

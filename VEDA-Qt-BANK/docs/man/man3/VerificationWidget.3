@@ -1,0 +1,48 @@
+.TH "VerificationWidget" 3 "VEDA-Qt-BANK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VerificationWidget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <verificationwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBbackRequested\fP ()"
+.br
+.ti -1c
+.RI "void \fBverificationCompleted\fP (const QString &verificationCode)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVerificationWidget\fP (QWidget *parent=nullptr)"
+.br
+.ti -1c
+.RI "void \fBsetupForTransaction\fP (const QString &transactionType)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "VerificationWidget::VerificationWidget (QWidget * parent = \fRnullptr\fP)\fR [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void VerificationWidget::backRequested ()\fR [signal]\fP"
+
+.SS "void VerificationWidget::setupForTransaction (const QString & transactionType)"
+
+.SS "void VerificationWidget::verificationCompleted (const QString & verificationCode)\fR [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VEDA-Qt-BANK from the source code\&.

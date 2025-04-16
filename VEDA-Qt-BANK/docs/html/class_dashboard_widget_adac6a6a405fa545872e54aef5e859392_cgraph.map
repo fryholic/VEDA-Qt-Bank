@@ -1,0 +1,9 @@
+<map id="DashboardWidget::updateAccountList" name="DashboardWidget::updateAccountList">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,247,69"/>
+<area shape="rect" id="Node000002" href="$class_dashboard_widget.html#aacf81bb943822576ba739d7b60d13811" title=" " alt="" coords="295,5,474,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,40,279,36,279,41,248,45"/>
+<area shape="rect" id="Node000003" href="$class_account_list_item.html#a8d92d399568a80640ce6c282801f4ccf" title=" " alt="" coords="302,72,467,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="248,67,286,72,286,77,247,72"/>
+<area shape="rect" id="Node000004" href="$class_account_list_item.html#a1050d2d08de8ac6f72975c658f59e982" title=" " alt="" coords="522,64,692,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="468,83,506,83,506,88,468,88"/>
+</map>

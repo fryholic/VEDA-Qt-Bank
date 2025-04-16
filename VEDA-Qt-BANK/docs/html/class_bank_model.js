@@ -1,0 +1,25 @@
+var class_bank_model =
+[
+    [ "BankModel", "class_bank_model.html#acfe6ab2c9f2b125c39ce78cf2267a9c2", null ],
+    [ "~BankModel", "class_bank_model.html#a9d5402db76d348d45a723fa93be82987", null ],
+    [ "createAccount", "class_bank_model.html#af8644b1c16ae05a9c72ce927f69c0540", null ],
+    [ "currentAccountNumber", "class_bank_model.html#adf9ce414069da875078a06c652a87be6", null ],
+    [ "currentAccountNumberChanged", "class_bank_model.html#a33fda77509c9faa8d58308a36a6dce0c", null ],
+    [ "deposit", "class_bank_model.html#aada2aabdd10b84a152bba1599da65f6c", null ],
+    [ "getAccountDetails", "class_bank_model.html#a13e3169e4212bfb5aa2b56951cf4783a", null ],
+    [ "getAccounts", "class_bank_model.html#a4bea3262a23453264bf2ad7aa53d77fa", null ],
+    [ "getTransactions", "class_bank_model.html#a60bd456542c80714712a64ba12fc23dc", null ],
+    [ "login", "class_bank_model.html#aa0b4dee6b7bd5c35e089933b1481ff37", null ],
+    [ "logout", "class_bank_model.html#af38d9dbc1fedd497a4075670a5a9cc22", null ],
+    [ "registerUser", "class_bank_model.html#ac3e97126693df73a530d31fd9ae8bc74", null ],
+    [ "setCurrentAccountNumber", "class_bank_model.html#a628a3fd7bb06a3d0643bbc1be3e21e55", null ],
+    [ "setUserName", "class_bank_model.html#af4e6e65b264592a063059a2d3ed5cd13", null ],
+    [ "totalBalance", "class_bank_model.html#a34db83ade30814825441d53f3d703854", null ],
+    [ "totalBalanceChanged", "class_bank_model.html#a3181500149b765e3aa78a3199d9e1326", null ],
+    [ "transactionCompleted", "class_bank_model.html#a34e6085233a49e0c9946d9ed0a62407f", null ],
+    [ "transfer", "class_bank_model.html#aaf69418d02fd0366007dcdcab2fa2c36", null ],
+    [ "userName", "class_bank_model.html#ac9dceeaf21fa209d7112f4b3155b1416", null ],
+    [ "userNameChanged", "class_bank_model.html#afca92249a3aeae8e6c9fc0ee4073db0f", null ],
+    [ "verifyAmount", "class_bank_model.html#a419a7ff7b9930cb735643a2550a3bbed", null ],
+    [ "withdraw", "class_bank_model.html#a0ffdefbb4cb89984d6288b1d32a5b911", null ]
+];

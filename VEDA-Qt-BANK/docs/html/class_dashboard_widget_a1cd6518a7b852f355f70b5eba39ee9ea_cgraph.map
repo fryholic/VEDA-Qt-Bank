@@ -1,0 +1,13 @@
+<map id="DashboardWidget::showEvent" name="DashboardWidget::showEvent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,68,204,95"/>
+<area shape="rect" id="Node000002" href="$class_dashboard_widget.html#adac6a6a405fa545872e54aef5e859392" title=" " alt="" coords="252,43,493,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,69,236,66,236,72,204,75"/>
+<area shape="rect" id="Node000006" href="$class_dashboard_widget.html#ad7dfa0a8a3ee243b174348df803a85c0" title=" " alt="" coords="261,93,484,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="204,88,246,92,245,97,204,93"/>
+<area shape="rect" id="Node000003" href="$class_dashboard_widget.html#aacf81bb943822576ba739d7b60d13811" title=" " alt="" coords="541,5,720,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="493,40,525,36,526,41,494,45"/>
+<area shape="rect" id="Node000004" href="$class_account_list_item.html#a8d92d399568a80640ce6c282801f4ccf" title=" " alt="" coords="548,72,713,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="494,67,533,72,532,77,493,72"/>
+<area shape="rect" id="Node000005" href="$class_account_list_item.html#a1050d2d08de8ac6f72975c658f59e982" title=" " alt="" coords="768,64,939,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="714,83,753,83,753,88,714,88"/>
+</map>

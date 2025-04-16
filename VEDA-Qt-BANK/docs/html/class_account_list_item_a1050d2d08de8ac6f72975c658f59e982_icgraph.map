@@ -1,0 +1,11 @@
+<map id="AccountListItem::accountNumber" name="AccountListItem::accountNumber">
+<area shape="rect" id="Node000001" title=" " alt="" coords="754,35,925,77"/>
+<area shape="rect" id="Node000002" href="$class_account_list_item.html#a8d92d399568a80640ce6c282801f4ccf" title=" " alt="" coords="541,43,706,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="739,59,707,59,707,53,739,53"/>
+<area shape="rect" id="Node000003" href="$class_account_list_item.html#a420b430f1ef3f9965273ab2f610ec15a" title=" " alt="" coords="274,5,471,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="526,47,471,41,472,36,526,42"/>
+<area shape="rect" id="Node000004" href="$class_dashboard_widget.html#adac6a6a405fa545872e54aef5e859392" title=" " alt="" coords="252,72,493,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="526,70,492,74,492,69,525,65"/>
+<area shape="rect" id="Node000005" href="$class_dashboard_widget.html#a1cd6518a7b852f355f70b5eba39ee9ea" title=" " alt="" coords="5,72,204,99"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="236,88,204,88,204,83,236,83"/>
+</map>

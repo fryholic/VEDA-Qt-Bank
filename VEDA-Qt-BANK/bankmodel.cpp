@@ -30,14 +30,14 @@ void BankModel::setUserName(const QString &name)
     }
 }
 
-double BankModel::totalBalance() const
+qint64 BankModel::totalBalance() const
 {
     QSqlQuery query("SELECT SUM(balance) as total FROM accounts");
     query.prepare("SELECT SUM(balance) as total FROM accounts WHERE username = :username");
     query.bindValue(":username", m_userName);
     query.exec();
     if (query.next()) {
-        return query.value("total").toDouble();
+        return query.value("total").toLongLong();
     }
     return 0.0;
 }
@@ -82,7 +82,7 @@ QVariantList BankModel::getAccounts() const
         QVariantMap accountMap;
         accountMap["accountNumber"] = query.value("accountNumber").toString();
         accountMap["accountName"] = query.value("accountName").toString();
-        accountMap["balance"] = query.value("balance").toDouble();
+        accountMap["balance"] = query.value("balance").toLongLong();
         result.append(accountMap);
     }
 
@@ -98,7 +98,7 @@ QVariantMap BankModel::getAccountDetails(const QString &accountNumber) const
     if (query.exec() && query.next()) {
         result["accountNumber"] = query.value("accountNumber").toString();
         result["accountName"] = query.value("accountName").toString();
-        result["balance"] = query.value("balance").toDouble();
+        result["balance"] = query.value("balance").toLongLong();
     }
     return result;
 }
@@ -114,7 +114,7 @@ QVariantList BankModel::getTransactions(const QString &accountNumber) const
             QVariantMap transactionMap;
             transactionMap["date"] = query.value("date").toString();
             transactionMap["type"] = query.value("type").toString();
-            transactionMap["amount"] = query.value("amount").toDouble();
+            transactionMap["amount"] = query.value("amount").toLongLong();
             transactionMap["description"] = query.value("description").toString();
             result.append(transactionMap);
         }
@@ -122,9 +122,9 @@ QVariantList BankModel::getTransactions(const QString &accountNumber) const
     return result;
 }
 
-bool BankModel::deposit(const QString &accountNumber, double amount, const QString &verificationCode)
+bool BankModel::deposit(const QString &accountNumber, qint64 amount, const QString &verificationCode)
 {
-    if (verificationCode.length() != 5 || !verificationCode.toInt()) {
+    if (verificationCode.length() != 5 || !verificationCode.toLongLong()) {
         return false;
     }
 
@@ -159,9 +159,9 @@ bool BankModel::deposit(const QString &accountNumber, double amount, const QStri
     return true;
 }
 
-bool BankModel::withdraw(const QString &accountNumber, double amount, const QString &verificationCode)
+bool BankModel::withdraw(const QString &accountNumber, qint64 amount, const QString &verificationCode)
 {
-    if (verificationCode.length() != 5 || !verificationCode.toInt()) {
+    if (verificationCode.length() != 5 || !verificationCode.toLongLong()) {
         return false;
     }
 
@@ -196,9 +196,9 @@ bool BankModel::withdraw(const QString &accountNumber, double amount, const QStr
     return true;
 }
 
-bool BankModel::transfer(const QString &fromAccount, const QString &toAccount, double amount, const QString &verificationCode)
+bool BankModel::transfer(const QString &fromAccount, const QString &toAccount, qint64 amount, const QString &verificationCode)
 {
-    if (verificationCode.length() != 5 || !verificationCode.toInt()) {
+    if (verificationCode.length() != 5 || !verificationCode.toLongLong()) {
         return false;
     }
 
@@ -257,7 +257,7 @@ bool BankModel::transfer(const QString &fromAccount, const QString &toAccount, d
     return true;
 }
 
-bool BankModel::verifyAmount(double amount, const QString &type, const QString &accountNumber)
+bool BankModel::verifyAmount(qint64 amount, const QString &type, const QString &accountNumber)
 {
     if (amount <= 0 || amount > MAX_AMOUNT) {
         return false;
@@ -268,7 +268,7 @@ bool BankModel::verifyAmount(double amount, const QString &type, const QString &
         query.prepare("SELECT balance FROM accounts WHERE accountNumber = :accountNumber");
         query.bindValue(":accountNumber", accountNumber);
         if (query.exec() && query.next()) {
-            double balance = query.value("balance").toDouble();
+            qint64 balance = query.value("balance").toLongLong();
             if (balance < amount) {
                 return false;
             }
@@ -288,7 +288,7 @@ void BankModel::initializeDatabase()
     query.exec("CREATE TABLE IF NOT EXISTS accounts ("
                "accountNumber TEXT PRIMARY KEY, "
                "accountName TEXT, "
-               "balance REAL, "
+               "balance INTEGER, "
                "username TEXT)");
 
     if (query.lastError().isValid()) {
@@ -302,7 +302,7 @@ void BankModel::initializeDatabase()
                "accountNumber TEXT, "
                "date TEXT, "
                "type TEXT, "
-               "amount REAL, "
+               "amount INTEGER, "
                "description TEXT)");
     if (query.lastError().isValid()) {
         qDebug() << "Error creating transactions table:" << query.lastError().text();
@@ -341,12 +341,12 @@ bool BankModel::createAccount(const QString &accountName, const QString &account
     checkQuery.prepare("SELECT COUNT(*) FROM accounts WHERE accountNumber = :accountNumber");
     checkQuery.bindValue(":accountNumber", accountNumber);
     checkQuery.exec();
-    if (checkQuery.next() && checkQuery.value(0).toInt() > 0) {
+    if (checkQuery.next() && checkQuery.value(0).toLongLong() > 0) {
         qDebug() << "중복 계좌번호:" << accountNumber;
         return false;
     }
 
-    double initialBalance = QRandomGenerator::global()->bounded(100000.0);
+    qint64 initialBalance = QRandomGenerator::global()->bounded(100000);
     QString username = m_userName;
 
     QSqlQuery query;

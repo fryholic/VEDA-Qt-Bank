@@ -1,0 +1,62 @@
+.TH "DashboardWidget" 3 "VEDA-Qt-BANK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DashboardWidget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <dashboardwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBlogoutRequested\fP ()"
+.br
+.ti -1c
+.RI "void \fBaccountSelected\fP (const QString &accountNumber)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDashboardWidget\fP (\fBBankModel\fP *model, QWidget *parent=nullptr)"
+.br
+.ti -1c
+.RI "void \fBupdateUserInfo\fP (const QString &username, double totalBalance)"
+.br
+.ti -1c
+.RI "void \fBupdateAccountList\fP (const QVariantList &accounts)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBshowEvent\fP (QShowEvent *event) override"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "DashboardWidget::DashboardWidget (\fBBankModel\fP * model, QWidget * parent = \fRnullptr\fP)\fR [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void DashboardWidget::accountSelected (const QString & accountNumber)\fR [signal]\fP"
+
+.SS "void DashboardWidget::logoutRequested ()\fR [signal]\fP"
+
+.SS "void DashboardWidget::showEvent (QShowEvent * event)\fR [override]\fP, \fR [protected]\fP"
+
+.SS "void DashboardWidget::updateAccountList (const QVariantList & accounts)"
+
+.SS "void DashboardWidget::updateUserInfo (const QString & username, double totalBalance)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VEDA-Qt-BANK from the source code\&.

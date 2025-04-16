@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_loginWidget = new LoginWidget(this);
     m_dashboardWidget = new DashboardWidget(m_bankModel, this);
     m_accountWidget = new AccountWidget(this);
-    m_transactionWidget = new TransactionWidget(this);
+    m_transactionWidget = new TransactionWidget(m_bankModel, this);
     m_verificationWidget = new VerificationWidget(this);
     m_completionWidget = new CompletionWidget(this);
     

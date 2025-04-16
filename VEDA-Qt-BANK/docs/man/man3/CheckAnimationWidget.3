@@ -1,0 +1,74 @@
+.TH "CheckAnimationWidget" 3 "VEDA-Qt-BANK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CheckAnimationWidget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <checkanimationwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCheckAnimationWidget\fP (QWidget *parent=nullptr)"
+.br
+.ti -1c
+.RI "\fB~CheckAnimationWidget\fP ()"
+.br
+.ti -1c
+.RI "void \fBstartAnimation\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTransactionType\fP (const QString &type)"
+.br
+.ti -1c
+.RI "qreal \fBprogress\fP () const"
+.br
+.ti -1c
+.RI "void \fBsetProgress\fP (qreal \fBprogress\fP)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpaintEvent\fP (QPaintEvent *event) override"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "qreal \fBprogress\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "CheckAnimationWidget::CheckAnimationWidget (QWidget * parent = \fRnullptr\fP)\fR [explicit]\fP"
+
+.SS "CheckAnimationWidget::~CheckAnimationWidget ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void CheckAnimationWidget::paintEvent (QPaintEvent * event)\fR [override]\fP, \fR [protected]\fP"
+
+.SS "qreal CheckAnimationWidget::progress () const\fR [inline]\fP"
+
+.SS "void CheckAnimationWidget::setProgress (qreal progress)"
+
+.SS "void CheckAnimationWidget::setTransactionType (const QString & type)"
+
+.SS "void CheckAnimationWidget::startAnimation ()"
+
+.SH "Property Documentation"
+.PP 
+.SS "qreal CheckAnimationWidget::progress\fR [read]\fP, \fR [write]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VEDA-Qt-BANK from the source code\&.

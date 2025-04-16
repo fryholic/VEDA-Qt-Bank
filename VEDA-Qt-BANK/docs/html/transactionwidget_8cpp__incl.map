@@ -1,0 +1,39 @@
+<map id="transactionwidget.cpp" name="transactionwidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="537,5,685,32"/>
+<area shape="rect" id="Node000002" href="$transactionwidget_8h.html" title=" " alt="" coords="274,80,409,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="565,35,404,78,403,73,563,30"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="433,80,535,107"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="590,35,521,74,518,70,587,30"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="559,80,662,107"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="614,33,614,64,608,64,608,33"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="687,80,756,107"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="632,30,691,69,688,74,629,35"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="780,80,972,107"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="658,30,816,73,815,78,656,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,78,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,110,93,157,92,152,288,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,155,165,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="306,110,180,153,179,148,304,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="189,155,267,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="323,109,262,148,259,144,320,105"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="292,155,391,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="344,107,344,139,339,139,339,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="415,155,535,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="366,105,440,145,437,149,363,110"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="560,155,641,181"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="387,105,545,149,544,154,386,110"/>
+<area shape="rect" id="Node000009" href="$bankmodel_8h.html" title=" " alt="" coords="664,155,760,181"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="409,105,650,151,649,156,408,110"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="460,229,530,256"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="675,184,545,227,544,222,673,179"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="554,229,620,256"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="692,184,623,224,620,219,689,180"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="643,229,696,256"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="707,183,687,217,682,215,702,181"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="719,229,790,256"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="722,181,742,215,738,217,717,183"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="815,229,871,256"/>
+<area shape="poly" id="edge13_Node000009_Node000014" title=" " alt="" coords="736,180,808,219,805,224,734,184"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="895,229,1001,256"/>
+<area shape="poly" id="edge14_Node000009_Node000015" title=" " alt="" coords="754,179,893,222,892,227,752,184"/>
+</map>

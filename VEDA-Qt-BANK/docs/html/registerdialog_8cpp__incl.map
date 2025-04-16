@@ -1,0 +1,15 @@
+<map id="registerdialog.cpp" name="registerdialog.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="204,5,328,32"/>
+<area shape="rect" id="Node000002" href="$registerdialog_8h.html" title=" " alt="" coords="82,80,192,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,35,174,74,171,70,242,30"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="215,80,317,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="269,33,269,64,264,64,264,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="342,80,404,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="286,30,343,69,340,73,283,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,74,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,109,70,148,67,143,118,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="98,155,176,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="140,107,140,139,134,139,134,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="200,155,300,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="158,105,219,144,216,148,155,109"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="BankModel::login" name="BankModel::login">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,127,32"/>
+<area shape="rect" id="Node000002" href="$class_bank_model.html#af4e6e65b264592a063059a2d3ed5cd13" title=" " alt="" coords="175,5,350,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,16,159,16,159,21,127,21"/>
+<area shape="rect" id="Node000003" href="$class_bank_model.html#afca92249a3aeae8e6c9fc0ee4073db0f" title=" " alt="" coords="398,5,604,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,16,382,16,382,21,351,21"/>
+</map>

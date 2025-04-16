@@ -1,0 +1,9 @@
+<map id="DashboardWidget::accountSelected" name="DashboardWidget::accountSelected">
+<area shape="rect" id="Node000001" title=" " alt="" coords="541,23,720,65"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="283,5,462,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="525,36,462,30,463,25,526,31"/>
+<area shape="rect" id="Node000003" href="$class_dashboard_widget.html#adac6a6a405fa545872e54aef5e859392" title=" " alt="" coords="252,56,493,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="526,57,494,60,493,55,525,52"/>
+<area shape="rect" id="Node000004" href="$class_dashboard_widget.html#a1cd6518a7b852f355f70b5eba39ee9ea" title=" " alt="" coords="5,56,204,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="236,72,204,72,204,67,236,67"/>
+</map>

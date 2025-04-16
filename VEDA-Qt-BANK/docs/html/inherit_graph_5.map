@@ -1,0 +1,21 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,208,78,235"/>
+<area shape="rect" id="Node000001" href="$class_account_list_item.html" title=" " alt="" coords="147,5,263,32"/>
+<area shape="poly" id="edge6_Node000000_Node000001" title=" " alt="" coords="46,192,56,158,71,118,94,77,124,42,145,29,148,34,127,46,98,80,76,120,61,160,51,194"/>
+<area shape="rect" id="Node000002" href="$class_account_widget.html" title=" " alt="" coords="150,56,260,83"/>
+<area shape="poly" id="edge7_Node000000_Node000002" title=" " alt="" coords="52,193,80,142,100,115,124,93,148,79,150,84,127,97,104,119,84,145,56,195"/>
+<area shape="rect" id="Node000003" href="$class_check_animation_widget.html" title=" " alt="" coords="126,107,284,133"/>
+<area shape="poly" id="edge8_Node000000_Node000003" title=" " alt="" coords="63,195,90,168,124,143,149,132,151,136,127,148,94,172,66,198"/>
+<area shape="rect" id="Node000004" href="$class_completion_widget.html" title=" " alt="" coords="141,157,269,184"/>
+<area shape="poly" id="edge9_Node000000_Node000004" title=" " alt="" coords="91,203,158,182,160,187,93,208"/>
+<area shape="rect" id="Node000005" href="$class_dashboard_widget.html" title=" " alt="" coords="142,208,268,235"/>
+<area shape="poly" id="edge10_Node000000_Node000005" title=" " alt="" coords="93,219,142,219,142,224,93,224"/>
+<area shape="rect" id="Node000006" href="$class_login_widget.html" title=" " alt="" coords="158,259,252,285"/>
+<area shape="poly" id="edge11_Node000000_Node000006" title=" " alt="" coords="93,234,160,255,158,261,91,239"/>
+<area shape="rect" id="Node000007" href="$class_transaction_list_item.html" title=" " alt="" coords="137,309,273,336"/>
+<area shape="poly" id="edge12_Node000000_Node000007" title=" " alt="" coords="66,244,94,271,127,295,151,306,149,311,124,300,90,275,63,248"/>
+<area shape="rect" id="Node000008" href="$class_transaction_widget.html" title=" " alt="" coords="140,360,270,387"/>
+<area shape="poly" id="edge13_Node000000_Node000008" title=" " alt="" coords="56,247,84,298,104,324,127,346,147,357,144,362,124,350,100,327,80,301,52,250"/>
+<area shape="rect" id="Node000009" href="$class_verification_widget.html" title=" " alt="" coords="142,411,268,437"/>
+<area shape="poly" id="edge14_Node000000_Node000009" title=" " alt="" coords="51,249,61,283,76,323,98,362,127,397,145,408,142,412,124,401,94,366,71,325,56,285,46,251"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="accountwidget.h" name="accountwidget.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="83,5,199,32"/>
+<area shape="rect" id="Node000002" href="$accountwidget_8cpp.html" title=" " alt="" coords="5,80,136,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,45,85,81,81,78,116,41"/>
+<area shape="rect" id="Node000003" href="$mainwindow_8h.html" title=" " alt="" coords="160,80,264,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,41,202,78,198,81,162,45"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title=" " alt="" coords="115,155,189,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="194,120,164,156,160,153,190,117"/>
+<area shape="rect" id="Node000005" href="$mainwindow_8cpp.html" title=" " alt="" coords="213,155,330,181"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="234,117,264,153,259,156,230,120"/>
+</map>

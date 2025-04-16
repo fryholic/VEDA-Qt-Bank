@@ -1,0 +1,52 @@
+.TH "AccountListItem" 3 "VEDA-Qt-BANK" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AccountListItem
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <dashboardwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBclicked\fP (const QString &\fBaccountNumber\fP)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAccountListItem\fP (const QVariantMap &accountData, QWidget *parent=nullptr)"
+.br
+.ti -1c
+.RI "QString \fBaccountNumber\fP () const"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmousePressEvent\fP (QMouseEvent *event) override"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AccountListItem::AccountListItem (const QVariantMap & accountData, QWidget * parent = \fRnullptr\fP)\fR [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QString AccountListItem::accountNumber () const\fR [inline]\fP"
+
+.SS "void AccountListItem::clicked (const QString & accountNumber)\fR [signal]\fP"
+
+.SS "void AccountListItem::mousePressEvent (QMouseEvent * event)\fR [override]\fP, \fR [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VEDA-Qt-BANK from the source code\&.

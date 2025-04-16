@@ -38,7 +38,7 @@ VerificationWidget::VerificationWidget(QWidget *parent) : QWidget(parent)
     QIntValidator *validator = new QIntValidator(0, 99999, this);
     m_verificationEdit->setValidator(validator);
     
-    QLabel *hintLabel = new QLabel("* ATM 기기에 뜬 번호를 입력해주세요.", this);
+    QLabel *hintLabel = new QLabel("* ATM 기기에 표시되는 번호를 입력해주세요.", this);
     hintLabel->setObjectName("hintLabel");
     
     QVBoxLayout *verificationCardLayout = new QVBoxLayout(verificationCard);

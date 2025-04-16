@@ -1,0 +1,22 @@
+<map id="loginwidget.cpp" name="loginwidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="448,5,560,32"/>
+<area shape="rect" id="Node000002" href="$loginwidget_8h.html" title=" " alt="" coords="258,80,356,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="471,35,357,77,355,72,469,30"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="416,155,518,181"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="491,34,472,55,457,81,454,111,459,140,454,141,449,111,452,79,468,52,487,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="466,80,542,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="507,33,507,64,502,64,502,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="566,80,669,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="525,30,586,69,583,74,522,35"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="694,80,792,107"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="547,30,687,72,686,78,545,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,78,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,110,93,155,92,150,260,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,155,181,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="279,110,186,150,184,145,277,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="205,155,304,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="300,109,275,144,270,141,296,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="329,155,391,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="318,106,344,141,340,144,314,109"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="336,105,426,145,424,150,334,110"/>
+</map>

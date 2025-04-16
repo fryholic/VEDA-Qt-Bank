@@ -1,0 +1,7 @@
+<map id="TransactionWidget::backRequested" name="TransactionWidget::backRequested">
+<area shape="rect" id="Node000001" title=" " alt="" coords="233,27,371,69"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="5,5,185,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,39,185,34,185,29,218,33"/>
+<area shape="rect" id="Node000003" href="$class_transaction_widget.html#a65a328e2212ab5fd79aeab4ef7cbb76e" title=" " alt="" coords="26,56,164,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,63,165,70,164,65,217,57"/>
+</map>

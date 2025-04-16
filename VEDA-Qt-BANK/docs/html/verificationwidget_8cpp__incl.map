@@ -1,0 +1,19 @@
+<map id="verificationwidget.cpp" name="verificationwidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="310,5,458,32"/>
+<area shape="rect" id="Node000002" href="$verificationwidget_8h.html" title=" " alt="" coords="114,80,247,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="350,35,231,77,229,72,348,30"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="270,80,373,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="375,34,344,70,340,66,371,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="396,80,500,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="397,31,429,66,425,70,393,34"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="524,80,620,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="418,30,526,71,524,76,416,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,78,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="157,110,81,149,78,145,155,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,155,165,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="174,109,152,143,147,140,170,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="189,155,267,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="191,106,214,140,209,143,186,109"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="292,155,391,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="209,105,301,145,298,150,207,110"/>
+</map>

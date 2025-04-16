@@ -12,9 +12,9 @@ class Account {
 public:
     QString accountNumber;
     QString accountName;
-    double balance;
+    qint64 balance;
     
-    Account(const QString &number, const QString &name, double initialBalance)
+    Account(const QString &number, const QString &name, qint64 initialBalance)
         : accountNumber(number), accountName(name), balance(initialBalance) {}
 };
 
@@ -22,10 +22,10 @@ class Transaction {
 public:
     QString date;
     QString type;
-    double amount;
+    qint64 amount;
     QString description;
     
-    Transaction(const QString &d, const QString &t, double a, const QString &desc)
+    Transaction(const QString &d, const QString &t, qint64 a, const QString &desc)
         : date(d), type(t), amount(a), description(desc) {}
 };
 
@@ -40,7 +40,7 @@ public:
     QString userName() const { return m_userName; }
     void setUserName(const QString &name);
     
-    double totalBalance() const;
+    qint64 totalBalance() const;
     
     QString currentAccountNumber() const { return m_currentAccountNumber; }
     void setCurrentAccountNumber(const QString &accountNumber);
@@ -49,10 +49,10 @@ public:
     QVariantList getAccounts() const;
     QVariantMap getAccountDetails(const QString &accountNumber) const;
     QVariantList getTransactions(const QString &accountNumber) const;
-    bool deposit(const QString &accountNumber, double amount, const QString &verificationCode);
-    bool withdraw(const QString &accountNumber, double amount, const QString &verificationCode);
-    bool transfer(const QString &fromAccount, const QString &toAccount, double amount, const QString &verificationCode);
-    bool verifyAmount(double amount, const QString &type, const QString &accountNumber = QString());
+    bool deposit(const QString &accountNumber, qint64 amount, const QString &verificationCode);
+    bool withdraw(const QString &accountNumber, qint64 amount, const QString &verificationCode);
+    bool transfer(const QString &fromAccount, const QString &toAccount, qint64 amount, const QString &verificationCode);
+    bool verifyAmount(qint64 amount, const QString &type, const QString &accountNumber = QString());
 
     // bankmodel.h 안에 public 함수 추가
     bool registerUser(const QString &username, const QString &password); // 회원가입
@@ -64,7 +64,7 @@ signals:
     void userNameChanged();
     void totalBalanceChanged();
     void currentAccountNumberChanged();
-    void transactionCompleted(const QString &type, double amount);
+    void transactionCompleted(const QString &type, qint64 amount);
     
 private:
     QString m_userName;
@@ -76,7 +76,7 @@ private:
     void initializeDatabase();
     
     bool isLoggedIn;
-    const double MAX_AMOUNT = 4200000000.0; // 42억
+    const qint64 MAX_AMOUNT = 4200000000; // 42억
 
     // private 함수 안에 추가
     void createUserTable(); // 사용자 테이블 생성

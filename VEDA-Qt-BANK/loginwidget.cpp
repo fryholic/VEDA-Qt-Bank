@@ -12,10 +12,6 @@ LoginWidget::LoginWidget(QWidget *parent) : QWidget(parent)
     m_logoLabel->setPixmap(logo.scaled(500, 250, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     m_logoLabel->setAlignment(Qt::AlignCenter);
     
-    // m_titleLabel = new QLabel("VEDA", this);
-    // m_titleLabel->setAlignment(Qt::AlignCenter);
-    // m_titleLabel->setObjectName("titleLabel");
-    
     // 입력 필드
     m_usernameEdit = new QLineEdit(this);
     m_usernameEdit->setPlaceholderText("아이디");
