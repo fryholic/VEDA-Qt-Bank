@@ -8,6 +8,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+set(Qt6_DIR "C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6") # Update this path to your Qt6 installation
 find_package(Qt6 6.8 REQUIRED COMPONENTS Core Gui Widgets Sql)
 
 set(PROJECT_SOURCES
