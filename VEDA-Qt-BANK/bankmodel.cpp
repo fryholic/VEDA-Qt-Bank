@@ -396,6 +396,62 @@ bool BankModel::registerUser(const QString &username, const QString &password) {
     return true;
 }
 
+bool BankModel::createAccount(const QString &bankName, const QString &accountNumber)
+{
+    // 중복 체크
+    QSqlQuery checkQuery;
+    checkQuery.prepare("SELECT COUNT(*) FROM accounts WHERE accountNumber = :accountNumber");
+    checkQuery.bindValue(":accountNumber", accountNumber);
+    checkQuery.exec();
+    if (checkQuery.next() && checkQuery.value(0).toInt() > 0) {
+        qDebug() << "중복 계좌번호:" << accountNumber;
+        return false;
+    }
+
+    double initialBalance = QRandomGenerator::global()->bounded(100000.0);
+    QString username = m_userName;
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO accounts (accountNumber, accountName, balance, username) "
+                  "VALUES (:accountNumber, :accountName, :balance, :username)");
+    query.bindValue(":accountNumber", accountNumber);
+    query.bindValue(":accountName", bankName);
+    query.bindValue(":balance", initialBalance);
+    query.bindValue(":username", username);
+
+    if (!query.exec()) {
+        qDebug() << "계좌 생성 실패:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
+}
+
+
+/*
+bool BankModel::createAccount(const QString &bankName, const QString &accountNumber)
+{
+    double initialBalance = QRandomGenerator::global()->bounded(100000.0); // 랜덤 금액 생성
+    QString username = m_userName; // 로그인한 사용자 이름
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO accounts (accountNumber, accountName, balance, username) "
+                  "VALUES (:accountNumber, :accountName, :balance, :username)");
+    query.bindValue(":accountNumber", accountNumber);
+    query.bindValue(":accountName", bankName); // accountName 대신 bankName 저장
+    query.bindValue(":balance", initialBalance);
+    query.bindValue(":username", username);
+
+    if (!query.exec()) {
+        qDebug() << "계좌 생성 실패:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
+}
+*/
+
+/*
 bool BankModel::createAccount(const QString &accountName, double initialBalance)
 {
     QString accountNumber = QString::number(QRandomGenerator::global()->bounded(1000000000, 9999999999));
@@ -416,3 +472,4 @@ bool BankModel::createAccount(const QString &accountName, double initialBalance)
 
     return true;
 }
+*/

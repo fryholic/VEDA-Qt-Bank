@@ -102,15 +102,21 @@ TransactionWidget::TransactionWidget(QWidget *parent) : QWidget(parent)
     m_targetAccountEdit->setPlaceholderText("계좌번호를 입력하세요");
     m_targetAccountEdit->setObjectName("accountInput");
     
+    /* (구)계좌번호 형식 검증
     // 계좌번호 형식 검증 (예: 1234-5678-9012)
     QRegularExpressionValidator *accountValidator = new QRegularExpressionValidator(QRegularExpression("[0-9]{4}-[0-9]{4}-[0-9]{4}"), this);
     m_targetAccountEdit->setValidator(accountValidator);
-    
+    */
+
+    // (신)계좌번호 형식 검증
+    QRegularExpressionValidator *accountValidator = new QRegularExpressionValidator(QRegularExpression("^\\d{12}$"), this);
+    m_targetAccountEdit->setValidator(accountValidator);
+
     m_targetAccountErrorLabel = new QLabel("존재하지 않는 계좌번호입니다", m_targetAccountWidget);
     m_targetAccountErrorLabel->setObjectName("errorLabel");
     m_targetAccountErrorLabel->setVisible(false);
     
-    QLabel *accountFormatLabel = new QLabel("예시: 1234-5678-9012", m_targetAccountWidget);
+    QLabel *accountFormatLabel = new QLabel("예시: 110409194037", m_targetAccountWidget);
     accountFormatLabel->setObjectName("hintLabel");
     
     QVBoxLayout *targetInputCardLayout = new QVBoxLayout(targetInputCard);
@@ -227,8 +233,26 @@ void TransactionWidget::onNextButtonClicked()
 void TransactionWidget::onTargetNextButtonClicked()
 {
     QString targetAccount = m_targetAccountEdit->text();
+    QRegularExpression re("^\\d{12}$");
+
+    if (!re.match(targetAccount).hasMatch()) {
+        m_targetAccountErrorLabel->setText("계좌번호는 12자리 숫자여야 합니다.");
+        m_targetAccountErrorLabel->setVisible(true);
+        return;
+    }
+
+    m_targetAccountErrorLabel->setVisible(false);
+    emit targetAccountEntered(targetAccount);
+}
+
+
+/*
+void TransactionWidget::onTargetNextButtonClicked()
+{
+    QString targetAccount = m_targetAccountEdit->text();
     
     if (!targetAccount.isEmpty()) {
         emit targetAccountEntered(targetAccount);
     }
 }
+*/

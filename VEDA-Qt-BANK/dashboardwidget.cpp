@@ -6,6 +6,7 @@
 #include <QVBoxLayout>
 #include <QSpacerItem>
 #include <QLocale>
+#include <QMessageBox>
 
 AccountListItem::AccountListItem(const QVariantMap &accountData, QWidget *parent)
     : QWidget(parent), m_accountNumber(accountData["accountNumber"].toString())
@@ -176,6 +177,49 @@ void DashboardWidget::onAddAccountClicked()
 {
     AddAccountDialog dialog(this);
     if (dialog.exec() == QDialog::Accepted) {
+        QString bankName = dialog.bankName();
+        QString accountNumber = dialog.accountNumber();
+
+        if (!dialog.isValidAccountNumber(accountNumber)) {
+            QMessageBox::warning(this, "유효하지 않은 계좌번호", "계좌번호가 유효하지 않습니다. 다시 확인해주세요.");
+            return;
+        }
+
+        if (!bankName.isEmpty() && !accountNumber.isEmpty()) {
+            if (m_bankModel->createAccount(bankName, accountNumber)) {
+                updateAccountList(m_bankModel->getAccounts());
+                updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
+            } else {
+                QMessageBox::warning(this, "계좌 생성 실패", "이미 존재하는 계좌번호입니다.");
+            }
+        }
+    }
+}
+
+
+/*
+void DashboardWidget::onAddAccountClicked()
+{
+    AddAccountDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        QString bankName = dialog.bankName(); // 은행명
+        QString accountNumber = dialog.accountNumber(); // 계좌번호
+
+        if (!bankName.isEmpty() && !accountNumber.isEmpty()) {
+            if (m_bankModel->createAccount(bankName, accountNumber)) {
+                updateAccountList(m_bankModel->getAccounts());
+                updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
+            }
+        }
+    }
+}
+*/
+
+/*
+void DashboardWidget::onAddAccountClicked()
+{
+    AddAccountDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
         QString name = dialog.accountName();
         double balance = dialog.initialBalance();
 
@@ -187,3 +231,4 @@ void DashboardWidget::onAddAccountClicked()
         }
     }
 }
+*/
