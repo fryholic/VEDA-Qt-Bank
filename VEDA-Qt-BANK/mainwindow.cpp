@@ -5,7 +5,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     // 기본 창 설정
-    setWindowTitle("한화 가상 은행");
+    setWindowTitle("VEDA 은행");
     resize(800, 600);
     
     // 모델 초기화

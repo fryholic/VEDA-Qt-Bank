@@ -8,13 +8,13 @@ LoginWidget::LoginWidget(QWidget *parent) : QWidget(parent)
 {
     // 로고 및 타이틀
     m_logoLabel = new QLabel(this);
-    QPixmap logo(":/images/bank_logo.png");
-    m_logoLabel->setPixmap(logo.scaled(150, 150, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    QPixmap logo(":/images/veda_logo.png");
+    m_logoLabel->setPixmap(logo.scaled(500, 250, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     m_logoLabel->setAlignment(Qt::AlignCenter);
     
-    m_titleLabel = new QLabel("VEDA", this);
-    m_titleLabel->setAlignment(Qt::AlignCenter);
-    m_titleLabel->setObjectName("titleLabel");
+    // m_titleLabel = new QLabel("VEDA", this);
+    // m_titleLabel->setAlignment(Qt::AlignCenter);
+    // m_titleLabel->setObjectName("titleLabel");
     
     // 입력 필드
     m_usernameEdit = new QLineEdit(this);
@@ -41,7 +41,7 @@ LoginWidget::LoginWidget(QWidget *parent) : QWidget(parent)
     QVBoxLayout *centerLayout = new QVBoxLayout();
     centerLayout->setSpacing(20);
     centerLayout->addWidget(m_logoLabel);
-    centerLayout->addWidget(m_titleLabel);
+    //centerLayout->addWidget(m_titleLabel);
     centerLayout->addWidget(m_usernameEdit);
     centerLayout->addWidget(m_passwordEdit);
     centerLayout->addWidget(m_loginButton);

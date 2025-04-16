@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     
     // 앱 정보 설정
     app.setApplicationName("VEDA");
-    app.setWindowIcon(QIcon(":/images/bank_logo.png"));
+    app.setWindowIcon(QIcon(":/images/veda_icon.png"));
     
     // 폰트 로드
     QFontDatabase::addApplicationFont(":/fonts/05HanwhaGothicEL.ttf");
