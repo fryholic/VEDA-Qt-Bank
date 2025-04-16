@@ -136,7 +136,6 @@ DashboardWidget::DashboardWidget(BankModel *model, QWidget *parent) : QWidget(pa
     connect(m_logoutButton, &QPushButton::clicked, this, &DashboardWidget::logoutRequested);
     connect(m_addAccountButton, &QPushButton::clicked, this, &DashboardWidget::onAddAccountClicked);
 
-
 }
 
 void DashboardWidget::updateUserInfo(const QString &username, double totalBalance)
@@ -177,7 +176,7 @@ void DashboardWidget::onAddAccountClicked()
 {
     AddAccountDialog dialog(this);
     if (dialog.exec() == QDialog::Accepted) {
-        QString bankName = dialog.bankName();
+        QString accountName = dialog.accountName();
         QString accountNumber = dialog.accountNumber();
 
         if (!dialog.isValidAccountNumber(accountNumber)) {
@@ -185,8 +184,8 @@ void DashboardWidget::onAddAccountClicked()
             return;
         }
 
-        if (!bankName.isEmpty() && !accountNumber.isEmpty()) {
-            if (m_bankModel->createAccount(bankName, accountNumber)) {
+        if (!accountName.isEmpty() && !accountNumber.isEmpty()) {
+            if (m_bankModel->createAccount(accountName, accountNumber)) {
                 updateAccountList(m_bankModel->getAccounts());
                 updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
             } else {
@@ -195,40 +194,3 @@ void DashboardWidget::onAddAccountClicked()
         }
     }
 }
-
-
-/*
-void DashboardWidget::onAddAccountClicked()
-{
-    AddAccountDialog dialog(this);
-    if (dialog.exec() == QDialog::Accepted) {
-        QString bankName = dialog.bankName(); // 은행명
-        QString accountNumber = dialog.accountNumber(); // 계좌번호
-
-        if (!bankName.isEmpty() && !accountNumber.isEmpty()) {
-            if (m_bankModel->createAccount(bankName, accountNumber)) {
-                updateAccountList(m_bankModel->getAccounts());
-                updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
-            }
-        }
-    }
-}
-*/
-
-/*
-void DashboardWidget::onAddAccountClicked()
-{
-    AddAccountDialog dialog(this);
-    if (dialog.exec() == QDialog::Accepted) {
-        QString name = dialog.accountName();
-        double balance = dialog.initialBalance();
-
-        if (!name.isEmpty() && balance >= 0) {
-            if (m_bankModel->createAccount(name, balance)) {
-                updateAccountList(m_bankModel->getAccounts());
-                updateUserInfo(m_bankModel->userName(), m_bankModel->totalBalance());
-            }
-        }
-    }
-}
-*/

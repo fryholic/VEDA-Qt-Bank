@@ -26,7 +26,7 @@ VerificationWidget::VerificationWidget(QWidget *parent) : QWidget(parent)
     QWidget *verificationCard = new QWidget(this);
     verificationCard->setObjectName("inputCard");
     
-    QLabel *verificationTitle = new QLabel("인증번호 5자리를 입력하세요", this);
+    QLabel *verificationTitle = new QLabel("ATM 인증번호 5자리를 입력하세요", this);
     verificationTitle->setObjectName("inputTitle");
     
     m_verificationEdit = new QLineEdit(this);
@@ -38,7 +38,7 @@ VerificationWidget::VerificationWidget(QWidget *parent) : QWidget(parent)
     QIntValidator *validator = new QIntValidator(0, 99999, this);
     m_verificationEdit->setValidator(validator);
     
-    QLabel *hintLabel = new QLabel("* 테스트용으로 아무 5자리 숫자나 입력하세요", this);
+    QLabel *hintLabel = new QLabel("* ATM 기기에 뜬 번호를 입력해주세요.", this);
     hintLabel->setObjectName("hintLabel");
     
     QVBoxLayout *verificationCardLayout = new QVBoxLayout(verificationCard);

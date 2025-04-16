@@ -58,11 +58,7 @@ public:
     bool registerUser(const QString &username, const QString &password); // 회원가입
     bool login(const QString &username, const QString &password); // 로그인
 
-    bool createAccount(const QString &bankName, const QString &accountNumber);
-
-/*
-    bool createAccount(const QString &accountName, double initialBalance);
-*/
+    bool createAccount(const QString &accountName, const QString &accountNumber);
 
 signals:
     void userNameChanged();

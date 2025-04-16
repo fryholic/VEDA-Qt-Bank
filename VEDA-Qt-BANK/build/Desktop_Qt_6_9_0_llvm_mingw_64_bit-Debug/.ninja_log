@@ -1,9 +1,0 @@
-# ninja log v6
-10	1237	7663016525595777	VEDA-Qt-BANK_autogen/timestamp	35c8178d3b3b71cb
-10	1237	7663016525595777	VEDA-Qt-BANK_autogen/mocs_compilation.cpp	35c8178d3b3b71cb
-10	1237	7663016525595777	C:/Users/2-30/Documents/GitHub/VEDA-Qt-Bank/VEDA-Qt-BANK/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/VEDA-Qt-BANK_autogen/timestamp	35c8178d3b3b71cb
-10	1237	7663016525595777	C:/Users/2-30/Documents/GitHub/VEDA-Qt-Bank/VEDA-Qt-BANK/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/VEDA-Qt-BANK_autogen/mocs_compilation.cpp	35c8178d3b3b71cb
-1252	4464	7663016526965826	CMakeFiles/VEDA-Qt-BANK.dir/main.cpp.obj	db624269ba058ab9
-1249	4467	7663016526935828	CMakeFiles/VEDA-Qt-BANK.dir/VEDA-Qt-BANK_autogen/mocs_compilation.cpp.obj	5bab29896dc69f24
-1255	4514	7663016526995845	CMakeFiles/VEDA-Qt-BANK.dir/mainwindow.cpp.obj	bd89504e34a2894d
-4514	4639	7663016559587140	VEDA-Qt-BANK.exe	2644c886853bdc69

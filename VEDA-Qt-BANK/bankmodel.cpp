@@ -72,28 +72,6 @@ void BankModel::logout()
 
 QVariantList BankModel::getAccounts() const
 {
-    // QVariantList result;
-    // for (const Account &account : m_accounts) {
-    //     QVariantMap accountMap;
-    //     accountMap["accountNumber"] = account.accountNumber;
-    //     accountMap["accountName"] = account.accountName;
-    //     accountMap["balance"] = account.balance;
-    //     result.append(accountMap);
-    // }
-    // return result;
-
-/*
-    QVariantList result;
-    QSqlQuery query("SELECT * FROM accounts");
-    while (query.next()) {
-        QVariantMap accountMap;
-        accountMap["accountNumber"] = query.value("accountNumber").toString();
-        accountMap["accountName"] = query.value("accountName").toString();
-        accountMap["balance"] = query.value("balance").toDouble();
-        result.append(accountMap);
-    }
-    return result;
-*/
     QVariantList result;
     QSqlQuery query;
     query.prepare("SELECT * FROM accounts WHERE username = :username");
@@ -146,32 +124,6 @@ QVariantList BankModel::getTransactions(const QString &accountNumber) const
 
 bool BankModel::deposit(const QString &accountNumber, double amount, const QString &verificationCode)
 {
-    // // 검증 코드는 5자리 숫자여야 함
-    // if (verificationCode.length() != 5 || !verificationCode.toInt()) {
-    //     return false;
-    // }
-    
-    // if (!verifyAmount(amount, "deposit")) {
-    //     return false;
-    // }
-    
-    // for (int i = 0; i < m_accounts.size(); ++i) {
-    //     if (m_accounts[i].accountNumber == accountNumber) {
-    //         m_accounts[i].balance += amount;
-            
-    //         // 거래 내역 추가
-    //         QDateTime now = QDateTime::currentDateTime();
-    //         Transaction transaction(now.toString("yyyy-MM-dd"), "입금", amount, "입금");
-    //         m_transactions[accountNumber].append(transaction);
-            
-    //         emit totalBalanceChanged();
-    //         emit transactionCompleted("deposit", amount);
-    //         return true;
-    //     }
-    // }
-    
-    // return false;
-
     if (verificationCode.length() != 5 || !verificationCode.toInt()) {
         return false;
     }
@@ -339,13 +291,6 @@ void BankModel::initializeDatabase()
                "balance REAL, "
                "username TEXT)");
 
-/*
-    // 계좌 테이블 생성
-    query.exec("CREATE TABLE IF NOT EXISTS accounts ("
-               "accountNumber TEXT PRIMARY KEY, "
-               "accountName TEXT, "
-               "balance REAL)");
-*/
     if (query.lastError().isValid()) {
         qDebug() << "Error creating accounts table:" << query.lastError().text();
     }
@@ -362,14 +307,7 @@ void BankModel::initializeDatabase()
     if (query.lastError().isValid()) {
         qDebug() << "Error creating transactions table:" << query.lastError().text();
     }
-/*
-    // 초기 데이터 삽입 (필요 시)
-    query.exec("INSERT OR IGNORE INTO accounts (accountNumber, accountName, balance) VALUES "
-               "('1234-5678-9012', '일반 계좌', 1000000), "
-               "('9876-5432-1098', '저축 계좌', 5000000), "
-               "('5555-6666-7777', '투자 계좌', 10000000)");
 
-*/
     createUserTable();
 
 }
@@ -396,7 +334,7 @@ bool BankModel::registerUser(const QString &username, const QString &password) {
     return true;
 }
 
-bool BankModel::createAccount(const QString &bankName, const QString &accountNumber)
+bool BankModel::createAccount(const QString &accountName, const QString &accountNumber)
 {
     // 중복 체크
     QSqlQuery checkQuery;
@@ -415,52 +353,6 @@ bool BankModel::createAccount(const QString &bankName, const QString &accountNum
     query.prepare("INSERT INTO accounts (accountNumber, accountName, balance, username) "
                   "VALUES (:accountNumber, :accountName, :balance, :username)");
     query.bindValue(":accountNumber", accountNumber);
-    query.bindValue(":accountName", bankName);
-    query.bindValue(":balance", initialBalance);
-    query.bindValue(":username", username);
-
-    if (!query.exec()) {
-        qDebug() << "계좌 생성 실패:" << query.lastError().text();
-        return false;
-    }
-
-    return true;
-}
-
-
-/*
-bool BankModel::createAccount(const QString &bankName, const QString &accountNumber)
-{
-    double initialBalance = QRandomGenerator::global()->bounded(100000.0); // 랜덤 금액 생성
-    QString username = m_userName; // 로그인한 사용자 이름
-
-    QSqlQuery query;
-    query.prepare("INSERT INTO accounts (accountNumber, accountName, balance, username) "
-                  "VALUES (:accountNumber, :accountName, :balance, :username)");
-    query.bindValue(":accountNumber", accountNumber);
-    query.bindValue(":accountName", bankName); // accountName 대신 bankName 저장
-    query.bindValue(":balance", initialBalance);
-    query.bindValue(":username", username);
-
-    if (!query.exec()) {
-        qDebug() << "계좌 생성 실패:" << query.lastError().text();
-        return false;
-    }
-
-    return true;
-}
-*/
-
-/*
-bool BankModel::createAccount(const QString &accountName, double initialBalance)
-{
-    QString accountNumber = QString::number(QRandomGenerator::global()->bounded(1000000000, 9999999999));
-    QString username = m_userName; // 현재 로그인한 사용자 이름
-
-    QSqlQuery query;
-    query.prepare("INSERT INTO accounts (accountNumber, accountName, balance, username) "
-                  "VALUES (:accountNumber, :accountName, :balance, :username)");
-    query.bindValue(":accountNumber", accountNumber);
     query.bindValue(":accountName", accountName);
     query.bindValue(":balance", initialBalance);
     query.bindValue(":username", username);
@@ -472,4 +364,3 @@ bool BankModel::createAccount(const QString &accountName, double initialBalance)
 
     return true;
 }
-*/
