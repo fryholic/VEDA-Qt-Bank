@@ -33,6 +33,9 @@ void BankModel::setUserName(const QString &name)
 double BankModel::totalBalance() const
 {
     QSqlQuery query("SELECT SUM(balance) as total FROM accounts");
+    query.prepare("SELECT SUM(balance) as total FROM accounts WHERE username = :username");
+    query.bindValue(":username", m_userName);
+    query.exec();
     if (query.next()) {
         return query.value("total").toDouble();
     }
