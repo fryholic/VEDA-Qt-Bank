@@ -1,7 +1,7 @@
-<map id="addaccountdialog.cpp" name="addaccountdialog.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="583,5,730,32"/>
+<map id="VEDA&#45;Qt&#45;BANK/addaccountdialog.cpp" name="VEDA&#45;Qt&#45;BANK/addaccountdialog.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="533,5,780,32"/>
 <area shape="rect" id="Node000002" href="$addaccountdialog_8h.html" title=" " alt="" coords="130,80,263,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="583,34,279,82,278,77,582,29"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="576,35,279,82,278,76,575,30"/>
 <area shape="rect" id="Node000006" href="$dashboardwidget_8h.html" title=" " alt="" coords="430,80,560,107"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="629,35,538,76,536,71,627,30"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="656,155,718,181"/>

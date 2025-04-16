@@ -1,11 +1,11 @@
-<map id="dashboardwidget.cpp" name="dashboardwidget.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="636,5,781,32"/>
+<map id="VEDA&#45;Qt&#45;BANK/dashboardwidget.cpp" name="VEDA&#45;Qt&#45;BANK/dashboardwidget.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="586,5,831,32"/>
 <area shape="rect" id="Node000002" href="$dashboardwidget_8h.html" title=" " alt="" coords="387,80,518,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="665,35,513,78,511,73,663,30"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="744,155,846,181"/>
 <area shape="poly" id="edge21_Node000001_Node000007" title=" " alt="" coords="659,35,624,48,594,64,583,73,578,83,577,94,582,105,600,115,637,126,730,150,728,155,635,132,598,119,579,109,572,95,573,82,579,70,591,60,622,43,657,30"/>
 <area shape="rect" id="Node000016" href="$addaccountdialog_8h.html" title=" " alt="" coords="146,80,279,107"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="636,33,295,83,294,77,635,28"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="622,35,295,83,294,77,621,30"/>
 <area shape="rect" id="Node000018" title=" " alt="" coords="592,80,697,107"/>
 <area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="699,34,668,70,664,66,695,31"/>
 <area shape="rect" id="Node000019" title=" " alt="" coords="721,80,824,107"/>
@@ -15,7 +15,7 @@
 <area shape="rect" id="Node000021" title=" " alt="" coords="971,80,1040,107"/>
 <area shape="poly" id="edge23_Node000001_Node000021" title=" " alt="" coords="763,30,956,77,955,82,762,35"/>
 <area shape="rect" id="Node000022" title=" " alt="" coords="1064,80,1172,107"/>
-<area shape="poly" id="edge24_Node000001_Node000022" title=" " alt="" coords="781,30,1049,77,1048,82,781,35"/>
+<area shape="poly" id="edge24_Node000001_Node000022" title=" " alt="" coords="782,30,1049,77,1048,82,781,35"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="324,155,397,181"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="438,109,390,147,386,143,435,105"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="421,155,484,181"/>
